@@ -1,0 +1,13 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+uiDesigner.xml
+workspace.xml
+/Users/adamsimkin/Documents/Smart Stuff Folder/Year 1 - Sapir/2nd Semester/JavaProjects/Calculator/untitled/untitled.iml
+/Users/adamsimkin/Documents/Smart Stuff Folder/Year 1 - Sapir/2nd Semester/JavaProjects/Calculator/untitled/.idea/workspace.xml
+.idea/
