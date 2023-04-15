@@ -1,4 +1,4 @@
-public class Integer {
+public class Integer implements Scalar {
     private final int number;
     public Integer(int num){
         this.number = num;
@@ -8,5 +8,30 @@ public class Integer {
          * Using the valueOf method in String to convert @this.number [int] to a string.
          */
         return String.valueOf(this.number);
+    }
+
+    @Override
+    public Scalar add(Scalar s) {
+        return null;
+    }
+
+    @Override
+    public Scalar mul(Scalar s) {
+        return null;
+    }
+
+    @Override
+    public Scalar neg() {
+        return null;
+    }
+
+    @Override
+    public Scalar power(int exponent) {
+        return null;
+    }
+
+    @Override
+    public int sign() {
+        return 0;
     }
 }
