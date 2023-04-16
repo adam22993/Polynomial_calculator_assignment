@@ -1,0 +1,1688 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+package org.junit.jupiter.api;
+
+import java.time.Duration;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.BooleanSupplier;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
+import org.apiguardian.api.API;
+import org.apiguardian.api.API.Status;
+import org.junit.jupiter.api.function.Executable;
+import org.junit.jupiter.api.function.ThrowingSupplier;
+import org.opentest4j.MultipleFailuresError;
+
+@API(
+    status = Status.STABLE,
+    since = "5.0"
+)
+public class Assertions {
+    @API(
+        status = Status.STABLE,
+        since = "5.3"
+    )
+    protected Assertions() {
+    }
+
+    public static <V> V fail() {
+        AssertionUtils.fail();
+        return null;
+    }
+
+    public static <V> V fail(String message) {
+        AssertionUtils.fail(message);
+        return null;
+    }
+
+    public static <V> V fail(String message, Throwable cause) {
+        AssertionUtils.fail(message, cause);
+        return null;
+    }
+
+    public static <V> V fail(Throwable cause) {
+        AssertionUtils.fail(cause);
+        return null;
+    }
+
+    public static <V> V fail(Supplier<String> messageSupplier) {
+        AssertionUtils.fail(messageSupplier);
+        return null;
+    }
+
+    public static void assertTrue(boolean condition) {
+        AssertTrue.assertTrue(condition);
+    }
+
+    public static void assertTrue(boolean condition, Supplier<String> messageSupplier) {
+        AssertTrue.assertTrue(condition, messageSupplier);
+    }
+
+    public static void assertTrue(BooleanSupplier booleanSupplier) {
+        AssertTrue.assertTrue(booleanSupplier);
+    }
+
+    public static void assertTrue(BooleanSupplier booleanSupplier, String message) {
+        AssertTrue.assertTrue(booleanSupplier, message);
+    }
+
+    public static void assertTrue(boolean condition, String message) {
+        AssertTrue.assertTrue(condition, message);
+    }
+
+    public static void assertTrue(BooleanSupplier booleanSupplier, Supplier<String> messageSupplier) {
+        AssertTrue.assertTrue(booleanSupplier, messageSupplier);
+    }
+
+    public static void assertFalse(boolean condition) {
+        AssertFalse.assertFalse(condition);
+    }
+
+    public static void assertFalse(boolean condition, String message) {
+        AssertFalse.assertFalse(condition, message);
+    }
+
+    public static void assertFalse(boolean condition, Supplier<String> messageSupplier) {
+        AssertFalse.assertFalse(condition, messageSupplier);
+    }
+
+    public static void assertFalse(BooleanSupplier booleanSupplier) {
+        AssertFalse.assertFalse(booleanSupplier);
+    }
+
+    public static void assertFalse(BooleanSupplier booleanSupplier, String message) {
+        AssertFalse.assertFalse(booleanSupplier, message);
+    }
+
+    public static void assertFalse(BooleanSupplier booleanSupplier, Supplier<String> messageSupplier) {
+        AssertFalse.assertFalse(booleanSupplier, messageSupplier);
+    }
+
+    public static void assertNull(Object actual) {
+        AssertNull.assertNull(actual);
+    }
+
+    public static void assertNull(Object actual, String message) {
+        AssertNull.assertNull(actual, message);
+    }
+
+    public static void assertNull(Object actual, Supplier<String> messageSupplier) {
+        AssertNull.assertNull(actual, messageSupplier);
+    }
+
+    public static void assertNotNull(Object actual) {
+        AssertNotNull.assertNotNull(actual);
+    }
+
+    public static void assertNotNull(Object actual, String message) {
+        AssertNotNull.assertNotNull(actual, message);
+    }
+
+    public static void assertNotNull(Object actual, Supplier<String> messageSupplier) {
+        AssertNotNull.assertNotNull(actual, messageSupplier);
+    }
+
+    public static void assertEquals(short expected, short actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(short expected, Short actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(Short expected, short actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertEquals(Short expected, Short actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(short expected, short actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(short expected, Short actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(Short expected, short actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertEquals(Short expected, Short actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(short expected, short actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertEquals(short expected, Short actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertEquals(Short expected, short actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertEquals(Short expected, Short actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertEquals(byte expected, byte actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(byte expected, Byte actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(Byte expected, byte actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertEquals(Byte expected, Byte actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(byte expected, byte actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(byte expected, Byte actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(Byte expected, byte actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertEquals(Byte expected, Byte actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(byte expected, byte actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertEquals(byte expected, Byte actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertEquals(Byte expected, byte actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertEquals(Byte expected, Byte actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertEquals(int expected, int actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(int expected, Integer actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(Integer expected, int actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertEquals(Integer expected, Integer actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(int expected, int actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(int expected, Integer actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(Integer expected, int actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertEquals(Integer expected, Integer actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(int expected, int actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertEquals(int expected, Integer actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertEquals(Integer expected, int actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertEquals(Integer expected, Integer actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertEquals(long expected, long actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(long expected, Long actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(Long expected, long actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertEquals(Long expected, Long actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(long expected, long actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(long expected, Long actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(Long expected, long actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertEquals(Long expected, Long actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(long expected, long actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertEquals(long expected, Long actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertEquals(Long expected, long actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertEquals(Long expected, Long actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertEquals(float expected, float actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(float expected, Float actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(Float expected, float actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertEquals(Float expected, Float actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(float expected, float actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(float expected, Float actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(Float expected, float actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertEquals(Float expected, Float actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(float expected, float actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertEquals(float expected, Float actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertEquals(Float expected, float actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertEquals(Float expected, Float actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertEquals(float expected, float actual, float delta) {
+        AssertEquals.assertEquals(expected, actual, delta);
+    }
+
+    public static void assertEquals(float expected, float actual, float delta, String message) {
+        AssertEquals.assertEquals(expected, actual, delta, message);
+    }
+
+    public static void assertEquals(float expected, float actual, float delta, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, delta, messageSupplier);
+    }
+
+    public static void assertEquals(double expected, double actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(double expected, Double actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(Double expected, double actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertEquals(Double expected, Double actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(double expected, double actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(double expected, Double actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(Double expected, double actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertEquals(Double expected, Double actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(double expected, double actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertEquals(double expected, Double actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertEquals(Double expected, double actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertEquals(Double expected, Double actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertEquals(double expected, double actual, double delta) {
+        AssertEquals.assertEquals(expected, actual, delta);
+    }
+
+    public static void assertEquals(double expected, double actual, double delta, String message) {
+        AssertEquals.assertEquals(expected, actual, delta, message);
+    }
+
+    public static void assertEquals(double expected, double actual, double delta, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, delta, messageSupplier);
+    }
+
+    public static void assertEquals(char expected, char actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(char expected, Character actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(Character expected, char actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertEquals(Character expected, Character actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(char expected, char actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(char expected, Character actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(Character expected, char actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertEquals(Character expected, Character actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(char expected, char actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertEquals(char expected, Character actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertEquals(Character expected, char actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertEquals(Character expected, Character actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertEquals(Object expected, Object actual) {
+        AssertEquals.assertEquals(expected, actual);
+    }
+
+    public static void assertEquals(Object expected, Object actual, String message) {
+        AssertEquals.assertEquals(expected, actual, message);
+    }
+
+    public static void assertEquals(Object expected, Object actual, Supplier<String> messageSupplier) {
+        AssertEquals.assertEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertArrayEquals(boolean[] expected, boolean[] actual) {
+        AssertArrayEquals.assertArrayEquals(expected, actual);
+    }
+
+    public static void assertArrayEquals(boolean[] expected, boolean[] actual, String message) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, message);
+    }
+
+    public static void assertArrayEquals(boolean[] expected, boolean[] actual, Supplier<String> messageSupplier) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertArrayEquals(char[] expected, char[] actual) {
+        AssertArrayEquals.assertArrayEquals(expected, actual);
+    }
+
+    public static void assertArrayEquals(char[] expected, char[] actual, String message) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, message);
+    }
+
+    public static void assertArrayEquals(char[] expected, char[] actual, Supplier<String> messageSupplier) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertArrayEquals(byte[] expected, byte[] actual) {
+        AssertArrayEquals.assertArrayEquals(expected, actual);
+    }
+
+    public static void assertArrayEquals(byte[] expected, byte[] actual, String message) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, message);
+    }
+
+    public static void assertArrayEquals(byte[] expected, byte[] actual, Supplier<String> messageSupplier) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertArrayEquals(short[] expected, short[] actual) {
+        AssertArrayEquals.assertArrayEquals(expected, actual);
+    }
+
+    public static void assertArrayEquals(short[] expected, short[] actual, String message) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, message);
+    }
+
+    public static void assertArrayEquals(short[] expected, short[] actual, Supplier<String> messageSupplier) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertArrayEquals(int[] expected, int[] actual) {
+        AssertArrayEquals.assertArrayEquals(expected, actual);
+    }
+
+    public static void assertArrayEquals(int[] expected, int[] actual, String message) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, message);
+    }
+
+    public static void assertArrayEquals(int[] expected, int[] actual, Supplier<String> messageSupplier) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertArrayEquals(long[] expected, long[] actual) {
+        AssertArrayEquals.assertArrayEquals(expected, actual);
+    }
+
+    public static void assertArrayEquals(long[] expected, long[] actual, String message) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, message);
+    }
+
+    public static void assertArrayEquals(long[] expected, long[] actual, Supplier<String> messageSupplier) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertArrayEquals(float[] expected, float[] actual) {
+        AssertArrayEquals.assertArrayEquals(expected, actual);
+    }
+
+    public static void assertArrayEquals(float[] expected, float[] actual, String message) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, message);
+    }
+
+    public static void assertArrayEquals(float[] expected, float[] actual, Supplier<String> messageSupplier) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertArrayEquals(float[] expected, float[] actual, float delta) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, delta);
+    }
+
+    public static void assertArrayEquals(float[] expected, float[] actual, float delta, String message) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, delta, message);
+    }
+
+    public static void assertArrayEquals(float[] expected, float[] actual, float delta, Supplier<String> messageSupplier) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, delta, messageSupplier);
+    }
+
+    public static void assertArrayEquals(double[] expected, double[] actual) {
+        AssertArrayEquals.assertArrayEquals(expected, actual);
+    }
+
+    public static void assertArrayEquals(double[] expected, double[] actual, String message) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, message);
+    }
+
+    public static void assertArrayEquals(double[] expected, double[] actual, Supplier<String> messageSupplier) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertArrayEquals(double[] expected, double[] actual, double delta) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, delta);
+    }
+
+    public static void assertArrayEquals(double[] expected, double[] actual, double delta, String message) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, delta, message);
+    }
+
+    public static void assertArrayEquals(double[] expected, double[] actual, double delta, Supplier<String> messageSupplier) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, delta, messageSupplier);
+    }
+
+    public static void assertArrayEquals(Object[] expected, Object[] actual) {
+        AssertArrayEquals.assertArrayEquals(expected, actual);
+    }
+
+    public static void assertArrayEquals(Object[] expected, Object[] actual, String message) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, message);
+    }
+
+    public static void assertArrayEquals(Object[] expected, Object[] actual, Supplier<String> messageSupplier) {
+        AssertArrayEquals.assertArrayEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertIterableEquals(Iterable<?> expected, Iterable<?> actual) {
+        AssertIterableEquals.assertIterableEquals(expected, actual);
+    }
+
+    public static void assertIterableEquals(Iterable<?> expected, Iterable<?> actual, String message) {
+        AssertIterableEquals.assertIterableEquals(expected, actual, message);
+    }
+
+    public static void assertIterableEquals(Iterable<?> expected, Iterable<?> actual, Supplier<String> messageSupplier) {
+        AssertIterableEquals.assertIterableEquals(expected, actual, messageSupplier);
+    }
+
+    public static void assertLinesMatch(List<String> expectedLines, List<String> actualLines) {
+        AssertLinesMatch.assertLinesMatch(expectedLines, actualLines);
+    }
+
+    public static void assertLinesMatch(List<String> expectedLines, List<String> actualLines, String message) {
+        AssertLinesMatch.assertLinesMatch(expectedLines, actualLines, message);
+    }
+
+    public static void assertLinesMatch(List<String> expectedLines, List<String> actualLines, Supplier<String> messageSupplier) {
+        AssertLinesMatch.assertLinesMatch(expectedLines, actualLines, messageSupplier);
+    }
+
+    public static void assertLinesMatch(Stream<String> expectedLines, Stream<String> actualLines) {
+        AssertLinesMatch.assertLinesMatch(expectedLines, actualLines);
+    }
+
+    public static void assertLinesMatch(Stream<String> expectedLines, Stream<String> actualLines, String message) {
+        AssertLinesMatch.assertLinesMatch(expectedLines, actualLines, message);
+    }
+
+    public static void assertLinesMatch(Stream<String> expectedLines, Stream<String> actualLines, Supplier<String> messageSupplier) {
+        AssertLinesMatch.assertLinesMatch(expectedLines, actualLines, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(byte unexpected, byte actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(byte unexpected, Byte actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Byte unexpected, byte actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Byte unexpected, Byte actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(byte unexpected, byte actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(byte unexpected, Byte actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Byte unexpected, byte actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Byte unexpected, Byte actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(byte unexpected, byte actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(byte unexpected, Byte actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Byte unexpected, byte actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Byte unexpected, Byte actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(short unexpected, short actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(short unexpected, Short actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Short unexpected, short actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Short unexpected, Short actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(short unexpected, short actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(short unexpected, Short actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Short unexpected, short actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Short unexpected, Short actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(short unexpected, short actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(short unexpected, Short actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Short unexpected, short actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Short unexpected, Short actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(int unexpected, int actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(int unexpected, Integer actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Integer unexpected, int actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Integer unexpected, Integer actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(int unexpected, int actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(int unexpected, Integer actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Integer unexpected, int actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Integer unexpected, Integer actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(int unexpected, int actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(int unexpected, Integer actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Integer unexpected, int actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Integer unexpected, Integer actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(long unexpected, long actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(long unexpected, Long actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Long unexpected, long actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Long unexpected, Long actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(long unexpected, long actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(long unexpected, Long actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Long unexpected, long actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Long unexpected, Long actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(long unexpected, long actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(long unexpected, Long actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Long unexpected, long actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Long unexpected, Long actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(float unexpected, float actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(float unexpected, Float actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Float unexpected, float actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Float unexpected, Float actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(float unexpected, float actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(float unexpected, Float actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Float unexpected, float actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Float unexpected, Float actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(float unexpected, float actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(float unexpected, Float actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Float unexpected, float actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Float unexpected, Float actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(float unexpected, float actual, float delta) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, delta);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(float unexpected, float actual, float delta, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, delta, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(float unexpected, float actual, float delta, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, delta, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(double unexpected, double actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(double unexpected, Double actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Double unexpected, double actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Double unexpected, Double actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(double unexpected, double actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(double unexpected, Double actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Double unexpected, double actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Double unexpected, Double actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(double unexpected, double actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(double unexpected, Double actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Double unexpected, double actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Double unexpected, Double actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(double unexpected, double actual, double delta) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, delta);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(double unexpected, double actual, double delta, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, delta, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(double unexpected, double actual, double delta, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, delta, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(char unexpected, char actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(char unexpected, Character actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Character unexpected, char actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Character unexpected, Character actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(char unexpected, char actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(char unexpected, Character actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Character unexpected, char actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Character unexpected, Character actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(char unexpected, char actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(char unexpected, Character actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Character unexpected, char actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.4"
+    )
+    public static void assertNotEquals(Character unexpected, Character actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    public static void assertNotEquals(Object unexpected, Object actual) {
+        AssertNotEquals.assertNotEquals(unexpected, actual);
+    }
+
+    public static void assertNotEquals(Object unexpected, Object actual, String message) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, message);
+    }
+
+    public static void assertNotEquals(Object unexpected, Object actual, Supplier<String> messageSupplier) {
+        AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
+    }
+
+    public static void assertSame(Object expected, Object actual) {
+        AssertSame.assertSame(expected, actual);
+    }
+
+    public static void assertSame(Object expected, Object actual, String message) {
+        AssertSame.assertSame(expected, actual, message);
+    }
+
+    public static void assertSame(Object expected, Object actual, Supplier<String> messageSupplier) {
+        AssertSame.assertSame(expected, actual, messageSupplier);
+    }
+
+    public static void assertNotSame(Object unexpected, Object actual) {
+        AssertNotSame.assertNotSame(unexpected, actual);
+    }
+
+    public static void assertNotSame(Object unexpected, Object actual, String message) {
+        AssertNotSame.assertNotSame(unexpected, actual, message);
+    }
+
+    public static void assertNotSame(Object unexpected, Object actual, Supplier<String> messageSupplier) {
+        AssertNotSame.assertNotSame(unexpected, actual, messageSupplier);
+    }
+
+    public static void assertAll(Executable... executables) throws MultipleFailuresError {
+        AssertAll.assertAll(executables);
+    }
+
+    public static void assertAll(String heading, Executable... executables) throws MultipleFailuresError {
+        AssertAll.assertAll(heading, executables);
+    }
+
+    public static void assertAll(Collection<Executable> executables) throws MultipleFailuresError {
+        AssertAll.assertAll(executables);
+    }
+
+    public static void assertAll(String heading, Collection<Executable> executables) throws MultipleFailuresError {
+        AssertAll.assertAll(heading, executables);
+    }
+
+    public static void assertAll(Stream<Executable> executables) throws MultipleFailuresError {
+        AssertAll.assertAll(executables);
+    }
+
+    public static void assertAll(String heading, Stream<Executable> executables) throws MultipleFailuresError {
+        AssertAll.assertAll(heading, executables);
+    }
+
+    @API(
+        status = Status.EXPERIMENTAL,
+        since = "5.8"
+    )
+    public static <T extends Throwable> T assertThrowsExactly(Class<T> expectedType, Executable executable) {
+        return AssertThrowsExactly.assertThrowsExactly(expectedType, executable);
+    }
+
+    @API(
+        status = Status.EXPERIMENTAL,
+        since = "5.8"
+    )
+    public static <T extends Throwable> T assertThrowsExactly(Class<T> expectedType, Executable executable, String message) {
+        return AssertThrowsExactly.assertThrowsExactly(expectedType, executable, message);
+    }
+
+    @API(
+        status = Status.EXPERIMENTAL,
+        since = "5.8"
+    )
+    public static <T extends Throwable> T assertThrowsExactly(Class<T> expectedType, Executable executable, Supplier<String> messageSupplier) {
+        return AssertThrowsExactly.assertThrowsExactly(expectedType, executable, messageSupplier);
+    }
+
+    public static <T extends Throwable> T assertThrows(Class<T> expectedType, Executable executable) {
+        return AssertThrows.assertThrows(expectedType, executable);
+    }
+
+    public static <T extends Throwable> T assertThrows(Class<T> expectedType, Executable executable, String message) {
+        return AssertThrows.assertThrows(expectedType, executable, message);
+    }
+
+    public static <T extends Throwable> T assertThrows(Class<T> expectedType, Executable executable, Supplier<String> messageSupplier) {
+        return AssertThrows.assertThrows(expectedType, executable, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.2"
+    )
+    public static void assertDoesNotThrow(Executable executable) {
+        AssertDoesNotThrow.assertDoesNotThrow(executable);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.2"
+    )
+    public static void assertDoesNotThrow(Executable executable, String message) {
+        AssertDoesNotThrow.assertDoesNotThrow(executable, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.2"
+    )
+    public static void assertDoesNotThrow(Executable executable, Supplier<String> messageSupplier) {
+        AssertDoesNotThrow.assertDoesNotThrow(executable, messageSupplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.2"
+    )
+    public static <T> T assertDoesNotThrow(ThrowingSupplier<T> supplier) {
+        return AssertDoesNotThrow.assertDoesNotThrow(supplier);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.2"
+    )
+    public static <T> T assertDoesNotThrow(ThrowingSupplier<T> supplier, String message) {
+        return AssertDoesNotThrow.assertDoesNotThrow(supplier, message);
+    }
+
+    @API(
+        status = Status.STABLE,
+        since = "5.2"
+    )
+    public static <T> T assertDoesNotThrow(ThrowingSupplier<T> supplier, Supplier<String> messageSupplier) {
+        return AssertDoesNotThrow.assertDoesNotThrow(supplier, messageSupplier);
+    }
+
+    public static void assertTimeout(Duration timeout, Executable executable) {
+        AssertTimeout.assertTimeout(timeout, executable);
+    }
+
+    public static void assertTimeout(Duration timeout, Executable executable, String message) {
+        AssertTimeout.assertTimeout(timeout, executable, message);
+    }
+
+    public static void assertTimeout(Duration timeout, Executable executable, Supplier<String> messageSupplier) {
+        AssertTimeout.assertTimeout(timeout, executable, messageSupplier);
+    }
+
+    public static <T> T assertTimeout(Duration timeout, ThrowingSupplier<T> supplier) {
+        return AssertTimeout.assertTimeout(timeout, supplier);
+    }
+
+    public static <T> T assertTimeout(Duration timeout, ThrowingSupplier<T> supplier, String message) {
+        return AssertTimeout.assertTimeout(timeout, supplier, message);
+    }
+
+    public static <T> T assertTimeout(Duration timeout, ThrowingSupplier<T> supplier, Supplier<String> messageSupplier) {
+        return AssertTimeout.assertTimeout(timeout, supplier, messageSupplier);
+    }
+
+    public static void assertTimeoutPreemptively(Duration timeout, Executable executable) {
+        AssertTimeout.assertTimeoutPreemptively(timeout, executable);
+    }
+
+    public static void assertTimeoutPreemptively(Duration timeout, Executable executable, String message) {
+        AssertTimeout.assertTimeoutPreemptively(timeout, executable, message);
+    }
+
+    public static void assertTimeoutPreemptively(Duration timeout, Executable executable, Supplier<String> messageSupplier) {
+        AssertTimeout.assertTimeoutPreemptively(timeout, executable, messageSupplier);
+    }
+
+    public static <T> T assertTimeoutPreemptively(Duration timeout, ThrowingSupplier<T> supplier) {
+        return AssertTimeout.assertTimeoutPreemptively(timeout, supplier);
+    }
+
+    public static <T> T assertTimeoutPreemptively(Duration timeout, ThrowingSupplier<T> supplier, String message) {
+        return AssertTimeout.assertTimeoutPreemptively(timeout, supplier, message);
+    }
+
+    public static <T> T assertTimeoutPreemptively(Duration timeout, ThrowingSupplier<T> supplier, Supplier<String> messageSupplier) {
+        return AssertTimeout.assertTimeoutPreemptively(timeout, supplier, messageSupplier);
+    }
+
+    @API(
+        status = Status.EXPERIMENTAL,
+        since = "5.8"
+    )
+    public static <T> T assertInstanceOf(Class<T> expectedType, Object actualValue) {
+        return AssertInstanceOf.assertInstanceOf(expectedType, actualValue);
+    }
+
+    @API(
+        status = Status.EXPERIMENTAL,
+        since = "5.8"
+    )
+    public static <T> T assertInstanceOf(Class<T> expectedType, Object actualValue, String message) {
+        return AssertInstanceOf.assertInstanceOf(expectedType, actualValue, message);
+    }
+
+    @API(
+        status = Status.EXPERIMENTAL,
+        since = "5.8"
+    )
+    public static <T> T assertInstanceOf(Class<T> expectedType, Object actualValue, Supplier<String> messageSupplier) {
+        return AssertInstanceOf.assertInstanceOf(expectedType, actualValue, messageSupplier);
+    }
+}

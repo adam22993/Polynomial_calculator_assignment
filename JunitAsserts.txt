@@ -1,0 +1,56 @@
+JUnit is a popular Java testing framework that provides several built-in assert methods to help
+you check the results of your tests. Here are some of the most commonly used assert methods in JUnit:
+
+assertEquals():
+This method checks if two values are equal.
+It has several overloaded versions, including versions that allow you to specify a delta value
+for comparing floating-point numbers.
+
+assertNotEquals():
+This method checks if two values are not equal.
+
+assertTrue():
+This method checks if a condition is true.
+
+assertFalse():
+This method checks if a condition is false.
+
+assertNull():
+This method checks if a value is null.
+
+assertNotNull():
+This method checks if a value is not null.
+
+assertSame():
+This method checks if two objects are the same instance.
+
+assertNotSame():
+This method checks if two objects are not the same instance.
+
+assertArrayEquals():
+This method checks if two arrays are equal.
+
+fail():
+This method is used to indicate that a test has failed.
+You can use this method to explicitly fail a test if a certain condition is not met.
+
+assertThrows():
+This method checks if a certain exception is thrown when a piece of code is executed.
+You can use this method to test if your code is throwing the expected exceptions.
+
+assertTimeout():
+This method checks if a piece of code executes within a specified time limit.
+You can use this method to test if your code meets certain performance requirements.
+
+assertTimeoutPreemptively():
+This method is similar to assertTimeout(),
+but it will interrupt the test if the code being tested takes too long to execute.
+You can use this method to prevent long-running tests from interfering with other tests.
+
+assertLinesMatch():
+This method checks if two lists of strings match.
+You can use this method to test if your code generates the expected output.
+
+assertAll():
+This method is used to group multiple assertions together.
+You can use this method to ensure that all the assertions in a group are executed, even if one of them fails.
