@@ -34,4 +34,9 @@ public class Integer implements Scalar {
     public int sign() {
         return 0;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        return false;
+    }
 }
