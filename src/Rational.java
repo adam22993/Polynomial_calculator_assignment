@@ -1,4 +1,4 @@
-public class Rational {
+public class Rational extends IntegerScalar {
     /*
      * TODO: CHECK IF FINALS ARE NECESSARY.
      */
@@ -40,7 +40,9 @@ public class Rational {
         //return res;
         return null;
     }
+    public Rational add(Rational r) {
 
+    }
     @Override
     public Scalar mul(Scalar s) {
         return null;
