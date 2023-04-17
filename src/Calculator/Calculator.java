@@ -36,7 +36,7 @@ public class Calculator {
                 }
                 case 3 -> {
                     p1 = readPolynomial();
-                    Scalar val = new IntegerScalar(readInt("Please enter the value to evaluate at:"));
+                    Calculator.Scalar val = new Calculator.IntegerScalar(readInt("Please enter the value to evaluate at:"));
                     printResult(p1.evaluate(val));
                 }
                 case 4 -> {

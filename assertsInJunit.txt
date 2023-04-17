@@ -250,11 +250,11 @@ public class Assertions {
         AssertEquals.assertEquals(expected, actual);
     }
 
-    public static void assertEquals(int expected, IntegerScalar actual) {
+    public static void assertEquals(int expected, Calculator.IntegerScalar actual) {
         AssertEquals.assertEquals(expected, actual);
     }
 
-    public static void assertEquals(IntegerScalar expected, int actual) {
+    public static void assertEquals(Calculator.IntegerScalar expected, int actual) {
         AssertEquals.assertEquals(expected, actual);
     }
 
@@ -262,7 +262,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertEquals(IntegerScalar expected, IntegerScalar actual) {
+    public static void assertEquals(Calculator.IntegerScalar expected, Calculator.IntegerScalar actual) {
         AssertEquals.assertEquals(expected, actual);
     }
 
@@ -270,11 +270,11 @@ public class Assertions {
         AssertEquals.assertEquals(expected, actual, message);
     }
 
-    public static void assertEquals(int expected, IntegerScalar actual, String message) {
+    public static void assertEquals(int expected, Calculator.IntegerScalar actual, String message) {
         AssertEquals.assertEquals(expected, actual, message);
     }
 
-    public static void assertEquals(IntegerScalar expected, int actual, String message) {
+    public static void assertEquals(Calculator.IntegerScalar expected, int actual, String message) {
         AssertEquals.assertEquals(expected, actual, message);
     }
 
@@ -282,7 +282,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertEquals(IntegerScalar expected, IntegerScalar actual, String message) {
+    public static void assertEquals(Calculator.IntegerScalar expected, Calculator.IntegerScalar actual, String message) {
         AssertEquals.assertEquals(expected, actual, message);
     }
 
@@ -290,11 +290,11 @@ public class Assertions {
         AssertEquals.assertEquals(expected, actual, messageSupplier);
     }
 
-    public static void assertEquals(int expected, IntegerScalar actual, Supplier<String> messageSupplier) {
+    public static void assertEquals(int expected, Calculator.IntegerScalar actual, Supplier<String> messageSupplier) {
         AssertEquals.assertEquals(expected, actual, messageSupplier);
     }
 
-    public static void assertEquals(IntegerScalar expected, int actual, Supplier<String> messageSupplier) {
+    public static void assertEquals(Calculator.IntegerScalar expected, int actual, Supplier<String> messageSupplier) {
         AssertEquals.assertEquals(expected, actual, messageSupplier);
     }
 
@@ -302,7 +302,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertEquals(IntegerScalar expected, IntegerScalar actual, Supplier<String> messageSupplier) {
+    public static void assertEquals(Calculator.IntegerScalar expected, Calculator.IntegerScalar actual, Supplier<String> messageSupplier) {
         AssertEquals.assertEquals(expected, actual, messageSupplier);
     }
 
@@ -954,7 +954,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertNotEquals(int unexpected, IntegerScalar actual) {
+    public static void assertNotEquals(int unexpected, Calculator.IntegerScalar actual) {
         AssertNotEquals.assertNotEquals(unexpected, actual);
     }
 
@@ -962,7 +962,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertNotEquals(IntegerScalar unexpected, int actual) {
+    public static void assertNotEquals(Calculator.IntegerScalar unexpected, int actual) {
         AssertNotEquals.assertNotEquals(unexpected, actual);
     }
 
@@ -970,7 +970,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertNotEquals(IntegerScalar unexpected, IntegerScalar actual) {
+    public static void assertNotEquals(Calculator.IntegerScalar unexpected, Calculator.IntegerScalar actual) {
         AssertNotEquals.assertNotEquals(unexpected, actual);
     }
 
@@ -986,7 +986,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertNotEquals(int unexpected, IntegerScalar actual, String message) {
+    public static void assertNotEquals(int unexpected, Calculator.IntegerScalar actual, String message) {
         AssertNotEquals.assertNotEquals(unexpected, actual, message);
     }
 
@@ -994,7 +994,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertNotEquals(IntegerScalar unexpected, int actual, String message) {
+    public static void assertNotEquals(Calculator.IntegerScalar unexpected, int actual, String message) {
         AssertNotEquals.assertNotEquals(unexpected, actual, message);
     }
 
@@ -1002,7 +1002,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertNotEquals(IntegerScalar unexpected, IntegerScalar actual, String message) {
+    public static void assertNotEquals(Calculator.IntegerScalar unexpected, Calculator.IntegerScalar actual, String message) {
         AssertNotEquals.assertNotEquals(unexpected, actual, message);
     }
 
@@ -1018,7 +1018,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertNotEquals(int unexpected, IntegerScalar actual, Supplier<String> messageSupplier) {
+    public static void assertNotEquals(int unexpected, Calculator.IntegerScalar actual, Supplier<String> messageSupplier) {
         AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
     }
 
@@ -1026,7 +1026,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertNotEquals(IntegerScalar unexpected, int actual, Supplier<String> messageSupplier) {
+    public static void assertNotEquals(Calculator.IntegerScalar unexpected, int actual, Supplier<String> messageSupplier) {
         AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
     }
 
@@ -1034,7 +1034,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertNotEquals(IntegerScalar unexpected, IntegerScalar actual, Supplier<String> messageSupplier) {
+    public static void assertNotEquals(Calculator.IntegerScalar unexpected, Calculator.IntegerScalar actual, Supplier<String> messageSupplier) {
         AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
     }
 

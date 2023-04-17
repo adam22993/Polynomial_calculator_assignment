@@ -1,7 +1,8 @@
-import java.lang.Integer;
+package Calculator;
+
 public interface Scalar {
     /*
-     * TODO: find how to implement the IntegerScalar and why its needed
+     * TODO: find how to implement the Calculator.IntegerScalar and why its needed
      *       try and understand how the scalar fits in this system exactly.
      */
 
@@ -12,5 +13,5 @@ public interface Scalar {
     int sign();
     @Override
     boolean equals(Object o);
-
+    <T> T accept(ScalarVisitor<T> visitor);
 }
