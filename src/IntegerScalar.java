@@ -12,7 +12,7 @@ public class IntegerScalar implements Scalar {
 
     @Override
     public Scalar add(Scalar s) {
-        return null;
+        return this.number + s;
     }
 
     @Override

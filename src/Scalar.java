@@ -12,4 +12,5 @@ public interface Scalar {
     int sign();
     @Override
     boolean equals(Object o);
+
 }
