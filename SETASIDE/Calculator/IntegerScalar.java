@@ -1,6 +1,6 @@
 package Calculator;
 
-public class IntegerScalar implements Scalar {
+public class IntegerScalar implements Scalarable<T> {
     private final int number;
     public IntegerScalar(int num){
         this.number = num;
@@ -56,7 +56,7 @@ public class IntegerScalar implements Scalar {
     }
 
     @Override
-    public <T> T accept(ScalarVisitor<T> visitor) {
+    public <T> T accept(Scalarable<T> visitor) {
         return visitor.visit(this);
     }
 

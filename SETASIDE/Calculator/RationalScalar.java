@@ -1,6 +1,6 @@
 package Calculator;
 
-public class RationalScalar implements Scalar {
+public class RationalScalar implements Scalar, String {
     /*
      * TODO: CHECK IF FINALS ARE NECESSARY.
      */

@@ -22,9 +22,9 @@ public class tests {
         assertEquals(new RationalScalar(2,3), c.reduce());
         assertNotEquals(new RationalScalar(1,1), a.reduce());
         assertEquals(new RationalScalar(2,1), b.reduce()); // test for reduce()
-        assertNotSame(new RationalScalar(2,1), b.reduce());
+        Assertions.assertNotSame(new RationalScalar(2,1), b.reduce());
         assertEquals(new RationalScalar(2,1), b.reduce(4,2)); // test for reduce(int a, int b)
-        assertNotSame(new RationalScalar(2,1), b.reduce(4,2));
+        Assertions.assertNotSame(new RationalScalar(2,1), b.reduce(4,2));
         assertEquals(new RationalScalar(3,1), d.reduce());
 
     }
