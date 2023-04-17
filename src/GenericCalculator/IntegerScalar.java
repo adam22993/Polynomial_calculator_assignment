@@ -1,4 +1,3 @@
-package GenericCalculator;
 
 public class IntegerScalar {
     private final int number;

@@ -1,4 +1,3 @@
-package GenericCalculator;
 
 public class RationalScalar implements Scalar {
     private final int numerator;
