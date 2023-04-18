@@ -40,10 +40,6 @@ public class Monomial implements Scalar {
         return null;
     }
 
-    @Override
-    public Scalar add_float(FloatScalar f) {
-        return null;
-    }
 //###################################endoffuckbois###########################################################
 
 
@@ -66,10 +62,6 @@ public class Monomial implements Scalar {
         return null;
     }
 
-    @Override
-    public Scalar mul_float(FloatScalar f) {
-        return null;
-    }
 
     //###################################endoffuckbois###########################################################
     @Override
@@ -96,6 +88,16 @@ public class Monomial implements Scalar {
             return false;
         Monomial m = (Monomial) obj;
         return this.coefficient.equals(m.coefficient) && this.exponent == m.exponent;
+    }
+
+    @Override
+    public Scalar round(int precision) {
+        return this;
+    }
+
+    @Override
+    public Monomial reduce() {
+        return new Monomial(this.coefficient.reduce(), this.exponent);
     }
 
     @Override
