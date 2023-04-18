@@ -32,6 +32,11 @@ public class RationalScalar implements Scalar {
     }
 
     @Override
+    public Scalar add_float(FloatScalar f) {
+        return new FloatScalar(f.getNumber() + this.numerator / this.denominator);
+    }
+
+    @Override
     public Scalar mul(Scalar s) {
         return s.mul_rati(this);
     }
@@ -43,6 +48,11 @@ public class RationalScalar implements Scalar {
 
     public Scalar mul_rati(RationalScalar r) {
         return new RationalScalar(this.numerator * r.numerator, this.denominator * r.denominator);
+    }
+
+    @Override
+    public Scalar mul_float(FloatScalar f) {
+        return null;
     }
 
     public RationalScalar neg() {

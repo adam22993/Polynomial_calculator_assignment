@@ -27,6 +27,11 @@ public class IntegerScalar implements Scalar {
     }
 
     @Override
+    public Scalar add_float(FloatScalar f) {
+        return new FloatScalar(this.number + f.getNumber());
+    }
+
+    @Override
     public Scalar mul(Scalar s) {
         return s.mul_int(this);
     }
@@ -39,6 +44,11 @@ public class IntegerScalar implements Scalar {
     @Override
     public Scalar mul_rati(RationalScalar r) {
         return new RationalScalar(this.number * r.getNumerator(), r.getDenominator());
+    }
+
+    @Override
+    public Scalar mul_float(FloatScalar f) {
+        return new FloatScalar(this.number * f.getNumber());
     }
 
     public IntegerScalar neg() {

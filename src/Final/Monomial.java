@@ -39,12 +39,18 @@ public class Monomial implements Scalar {
     public Scalar add_rati(RationalScalar r) {
         return null;
     }
+
+    @Override
+    public Scalar add_float(FloatScalar f) {
+        return null;
+    }
 //###################################endoffuckbois###########################################################
 
 
     public Monomial mul(Monomial m) {
         return new Monomial(this.coefficient.mul(m.coefficient), this.exponent + m.exponent);
     }
+
 //########################################fuckbois##########################################################
     @Override
     public Scalar mul(Scalar s) {
@@ -60,7 +66,12 @@ public class Monomial implements Scalar {
         return null;
     }
 
-//###################################endoffuckbois###########################################################
+    @Override
+    public Scalar mul_float(FloatScalar f) {
+        return null;
+    }
+
+    //###################################endoffuckbois###########################################################
     @Override
     public Scalar neg() {
         return new Monomial(this.coefficient.neg(), this.exponent);
@@ -90,6 +101,11 @@ public class Monomial implements Scalar {
     @Override
     public String toString() {
         return this.coefficient.toString() + "x^" + this.exponent;
+    }
+    public Monomial derivative(){
+        Scalar new_co = this.coefficient.mul(new IntegerScalar(this.exponent));
+        int new_ex = this.exponent - 1;
+        return new Monomial(new_co, new_ex);
     }
 
 }

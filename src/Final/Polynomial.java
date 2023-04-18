@@ -66,4 +66,3 @@ public class Polynomial {
         return new Polynomial(this_p);
     }
 }
-// thus
