@@ -1,6 +1,4 @@
-/*
 import java.util.Scanner;
-
 public class Calculator {
     private final Scanner s;
 
@@ -36,7 +34,7 @@ public class Calculator {
                 }
                 case 3 -> {
                     p1 = readPolynomial();
-                    Calculator.Scalar val = new Calculator.IntegerScalar(readInt("Please enter the value to evaluate at:"));
+                    Scalar val = new IntegerScalar(readInt("Please enter the value to evaluate at:"));
                     printResult(p1.evaluate(val));
                 }
                 case 4 -> {
@@ -75,4 +73,4 @@ public class Calculator {
         Calculator c = new Calculator();
         c.start();
     }
-}*/
+}

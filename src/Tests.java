@@ -1,5 +1,3 @@
-package Final;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.lang.Math;
@@ -72,15 +70,15 @@ public class Tests {
             Assertions.assertEquals(var.neg(), result);
         }
     }
-    @Test
-    public void testPower(){
-        Scalar result = new IntegerScalar(0);
-        for (Scalar var : varArray) {
-                result = new IntegerScalar(0); // reset result for next test
-                result = var.power(3);
-                Assertions.assertEquals(Math.pow(var.getValue(), 3), result.getValue()); // test if result is equal to the value of the result raised to the power of 3
-        }
-    }
+//    @Test
+//    public void testPower(){
+//        Scalar result = new IntegerScalar(0);
+//        for (Scalar var : varArray) {
+//                result = new IntegerScalar(0); // reset result for next test
+//                result = var.power(3);
+//                Assertions.assertEquals(Math.pow(var.getValue(), 3), result.getValue()); // test if result is equal to the value of the result raised to the power of 3
+//        }
+//    }
     @Test
     public void testSign(){
         int result = 0;

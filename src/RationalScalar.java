@@ -1,7 +1,3 @@
-package Final;
-
-import java.util.List;
-
 public class RationalScalar implements Scalar {
     private final int numerator;
     private final int denominator;

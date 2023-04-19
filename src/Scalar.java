@@ -1,5 +1,3 @@
-package Final;
-
 public interface Scalar {
 //    <T> Class<?> getItems();
     Scalar add(Scalar s);

@@ -1,5 +1,3 @@
-package Final;
-
 public class Monomial implements Scalar {
     private final Scalar coefficient;
     private final int exponent;
@@ -110,4 +108,7 @@ public class Monomial implements Scalar {
         return new Monomial(new_co, new_ex);
     }
 
+    public Scalar evaluate(Scalar s) {
+        return this.coefficient.mul(s.power(this.exponent));
+    }
 }

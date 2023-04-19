@@ -1,5 +1,3 @@
-package Final;
-
 public class IntegerScalar implements Scalar {
     private final int number;
 

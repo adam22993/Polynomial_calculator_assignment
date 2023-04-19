@@ -2,7 +2,7 @@
 //
 //public interface Scalar {
 //    /*
-//     * TODO: find how to implement the Calculator.IntegerScalar and why its needed
+//     * TODO: find how to implement the Calculator.Scalar.Scalar.IntegerScalar and why its needed
 //     *       try and understand how the scalar fits in this system exactly.
 //     */
 //
