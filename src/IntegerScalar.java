@@ -45,7 +45,7 @@ public class IntegerScalar implements Scalar {
 
     @Override
     public Scalar power(int exponent) {
-        return null;
+        return new IntegerScalar((int) Math.pow(this.number, exponent));
     }
 
     public int sign() {
@@ -61,12 +61,7 @@ public class IntegerScalar implements Scalar {
         if (!(obj instanceof IntegerScalar))
             return false;
 
-        return number == ((IntegerScalar) obj).number;
-    }
-
-    @Override
-    public Scalar round(int precision) {
-        return this;
+        return this.number == ((IntegerScalar) obj).number;
     }
 
     @Override
