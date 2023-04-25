@@ -126,8 +126,10 @@ public class Polynomial {
             s.append(getItem(key).toString()).append(" + ");
         }
         s = new StringBuilder(s.toString().replace(" + -", " - "));
-        if (s.charAt(0) == '0' && s.toString().length() > 4){
+        if (s.substring(0, 4).equals("0 + ")) {
             return s.substring(4, s.length() - 3);
+        } else if (s.substring(0, 4).equals("0 - ")) {
+            return "-" + s.substring(4, s.length() - 3);
         }
         return s.substring(0, s.length() - 3);
     }

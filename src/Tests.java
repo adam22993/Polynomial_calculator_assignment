@@ -48,7 +48,7 @@ public class Tests {
         for (int i = 1 ; i < 8; i++) {
             result = result.add(varArray[i]);
         }
-        Assertions.assertEquals(new RationalScalar(205,21).reduce(), result.reduce());
+        Assertions.assertEquals(new RationalScalar(205,21).reduce(), result);
     }
     @Test
     public void testMul(){

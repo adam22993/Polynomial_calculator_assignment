@@ -44,7 +44,7 @@ public class Monomial {
 
     }
     public Monomial derivative(){
-        Scalar new_co = this.coefficient.mul(new IntegerScalar(this.exponent)).reduce();
+        Scalar new_co = this.coefficient.mul(new IntegerScalar(this.exponent).reduce());
         int new_ex = this.exponent - 1;
         return new Monomial(new_co, new_ex);
     }

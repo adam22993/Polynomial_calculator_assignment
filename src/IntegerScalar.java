@@ -1,14 +1,18 @@
 public class IntegerScalar implements Scalar {
+// ----------------- fields -------------------
     private final int number;
 
+// ----------------- constructors -------------------
     public IntegerScalar(int number) {
         this.number = number;
     }
 
+// ----------------- getters -------------------
     public int getNumber() {
         return number;
     }
 
+// ------------- addition methods --------------
     @Override
     public Scalar add(Scalar s) {
         return s.add_int(this);
@@ -24,6 +28,7 @@ public class IntegerScalar implements Scalar {
         return new RationalScalar(this.number * r.getDenominator() + r.getNumerator(), r.getDenominator());
     }
 
+// ------------- multiplication methods --------------
     @Override
     public Scalar mul(Scalar s) {
         return s.mul_int(this);
@@ -39,6 +44,8 @@ public class IntegerScalar implements Scalar {
         return new RationalScalar(this.number * r.getNumerator(), r.getDenominator());
     }
 
+// ------------- Scalar methods --------------
+    @Override
     public IntegerScalar neg() {
         return new IntegerScalar(-number);
     }
@@ -48,11 +55,13 @@ public class IntegerScalar implements Scalar {
         return new IntegerScalar((int) Math.pow(this.number, exponent));
     }
 
+    @Override
     public int sign() {
         // Great use internal function for int field in this class.
         return Integer.signum(number);
     }
 
+// ---------------- class methods --------------------
     @Override
     public boolean equals(Object obj) {
         if (obj == this)
@@ -64,12 +73,11 @@ public class IntegerScalar implements Scalar {
         return this.number == ((IntegerScalar) obj).number;
     }
 
-    @Override
-    public Scalar reduce() {
-        return this;
-    }
-
     public String toString() {
         return Integer.toString(this.number);
+    }
+
+    public Scalar reduce() {
+        return this;
     }
 }

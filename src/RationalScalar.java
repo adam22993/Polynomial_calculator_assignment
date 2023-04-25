@@ -1,9 +1,12 @@
 import static java.lang.Math.abs;
 
 public class RationalScalar implements Scalar {
+
+// ----------------- fields -------------------
     private final int numerator;
     private final int denominator;
 
+// ----------------- constructors -------------------
     public RationalScalar(int numerator) {
         this.numerator = numerator;
         this.denominator = 1;
@@ -12,12 +15,8 @@ public class RationalScalar implements Scalar {
         this.numerator = numerator;
         this.denominator = denominator;
     }
-    public RationalScalar(String s) {
-        String[] parts = s.split("/");
-        this.numerator = Integer.parseInt(parts[0]);
-        this.denominator = Integer.parseInt(parts[1]);
-    }
 
+// ----------------- getters -------------------
     public int getNumerator() {
         return numerator;
     }
@@ -26,7 +25,7 @@ public class RationalScalar implements Scalar {
         return denominator;
     }
 
-
+// ----------------- methods -------------------
     @Override
     public Scalar add(Scalar s) {
         return s.add_rati(this);
@@ -41,31 +40,10 @@ public class RationalScalar implements Scalar {
         return new RationalScalar(this.numerator * r.denominator + this.denominator * r.numerator, this.denominator * r.denominator);
     }
 
-    public RationalScalar reduce() {
-        int gdc = GDC(this.numerator, this.denominator);
-        int new_num = this.numerator/gdc;
-        int new_denum = this.denominator/gdc;
-        return new RationalScalar(new_num, new_denum);
-    }
-
-
-    public RationalScalar reduce(int a, int b) {
-        int gdc = GDC(a, b);
-        int new_num = a/gdc;
-        int new_denum = b/gdc;
-        return new RationalScalar(new_num, new_denum);
-    }
-    public static int GDC(int a,int b){
-        if(a % b == 0){
-            return b;
-        }
-        return GDC(b, a % b);
-    }
     @Override
     public Scalar mul(Scalar s) {
         return s.mul_rati(this);
     }
-
     @Override
     public Scalar mul_int(IntegerScalar i) {
         return new RationalScalar(this.numerator * i.getNumber(), this.denominator);
@@ -81,7 +59,13 @@ public class RationalScalar implements Scalar {
     }
 
     public RationalScalar power(int exponent) {
-        return new RationalScalar((int) Math.pow(numerator, exponent), (int) Math.pow(denominator, exponent));
+        int result_num = 1;
+        int result_denom = 1;
+        for (int i = 0; i < exponent; i++) {
+            result_num *= this.numerator;
+            result_denom *= this.denominator;
+        }
+        return new RationalScalar(result_num, result_denom);
     }
 
     public int sign() {
@@ -95,24 +79,63 @@ public class RationalScalar implements Scalar {
 
     }
 
+    public RationalScalar reduce() {
+        /*
+         * A basic reduction method for rational numbers using the GDC recursive method.
+         */
+        int gdc = GDC(this.numerator, this.denominator);
+        int new_num = this.numerator/gdc;
+        int new_denum = this.denominator/gdc;
+
+        return new RationalScalar(new_num, new_denum);
+    }
+
+
+    public static RationalScalar reduce(int a, int b) {
+        /*
+         * A static variant of the reduce method, allowing easier debugging.
+         * @param a - The numerator of the rational number
+         * @param b - The denominator of the rational number
+         */
+        int gdc = GDC(a, b);
+        int new_num = a/gdc;
+        int new_denum = b/gdc;
+        return new RationalScalar(new_num, new_denum);
+    }
+    public static int GDC(int a,int b){
+        /*
+         * A recursive method for finding the greatest common divisor of two numbers.
+         * @param a - The first number.
+         * @param b - The second number.
+         */
+        if(a % b == 0){
+            return b;
+        }
+        return GDC(b, a % b);
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == this)
             return true;
         if (!(obj instanceof RationalScalar))
             return false;
+        /* taking the signs of the numbers into account, turning them absolute and comparing them with the original signs after reduction.
+         *
+         */
         int r_nom = ((RationalScalar) obj).sign();
         int r_denom = ((RationalScalar) obj).sign();
         int temp_nom = this.sign();
         int temp_denom = this.sign();
         RationalScalar r = ((RationalScalar) obj).reduce();
         RationalScalar temp = this.reduce();
-        return abs(r.numerator) * r_nom == abs(temp.numerator) * temp_nom && abs(r.denominator) * r_denom == abs(temp.denominator) * temp_denom;
+        return abs(r.numerator) == abs(temp.numerator) && abs(r.denominator) == abs(temp.denominator) && (r_nom == temp_nom && r_denom == temp_denom || r_nom == -temp_nom && r_denom == -temp_denom);
     }
 
     public String toString() {
-        if (this.denominator == 1) {
-            return new IntegerScalar(this.numerator).toString();
+        if (this.numerator % this.denominator == 0) {
+            int temp = this.numerator / this.denominator;
+            return new IntegerScalar(temp).toString();
         }
         int temp_nom = new IntegerScalar(this.numerator).sign();
         int temp_denom = new IntegerScalar(this.denominator).sign();
