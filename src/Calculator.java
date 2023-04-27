@@ -1,5 +1,10 @@
 import java.util.Scanner;
 public class Calculator {
+    /*
+     * TODO: 1) Create correct packaging for the classes
+     *       2) Create UML diagram for the program
+     *       3) Create a README.md file
+     */
     private final Scanner s;
 
     public Calculator(){
