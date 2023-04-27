@@ -2,17 +2,17 @@ public class IntegerScalar implements Scalar {
 // ----------------- fields -------------------
     private final int number;
 
-// ----------------- constructors -------------------
+// --------------- constructors ---------------
     public IntegerScalar(int number) {
         this.number = number;
     }
 
-// ----------------- getters -------------------
+// ----------------- getters ------------------
     public int getNumber() {
         return number;
     }
 
-// ------------- addition methods --------------
+// ------------- addition methods -------------
     @Override
     public Scalar add(Scalar s) {
         return s.add_int(this);
@@ -28,7 +28,7 @@ public class IntegerScalar implements Scalar {
         return new RationalScalar(this.number * r.getDenominator() + r.getNumerator(), r.getDenominator());
     }
 
-// ------------- multiplication methods --------------
+// ---------- multiplication methods ----------
     @Override
     public Scalar mul(Scalar s) {
         return s.mul_int(this);
@@ -75,9 +75,5 @@ public class IntegerScalar implements Scalar {
 
     public String toString() {
         return Integer.toString(this.number);
-    }
-
-    public Scalar reduce() {
-        return this;
     }
 }

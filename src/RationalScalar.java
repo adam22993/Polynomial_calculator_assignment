@@ -2,11 +2,11 @@ import static java.lang.Math.abs;
 
 public class RationalScalar implements Scalar {
 
-// ----------------- fields -------------------
+// ----------------- fields --------------------
     private final int numerator;
     private final int denominator;
 
-// ----------------- constructors -------------------
+// -------------- constructors -----------------
     public RationalScalar(int numerator) {
         this.numerator = numerator;
         this.denominator = 1;
@@ -16,7 +16,7 @@ public class RationalScalar implements Scalar {
         this.denominator = denominator;
     }
 
-// ----------------- getters -------------------
+// ---------------- getters --------------------
     public int getNumerator() {
         return numerator;
     }
@@ -25,7 +25,7 @@ public class RationalScalar implements Scalar {
         return denominator;
     }
 
-// ----------------- methods -------------------
+// ------------- addition methods --------------
     @Override
     public Scalar add(Scalar s) {
         return s.add_rati(this);
@@ -40,6 +40,7 @@ public class RationalScalar implements Scalar {
         return new RationalScalar(this.numerator * r.denominator + this.denominator * r.numerator, this.denominator * r.denominator);
     }
 
+// ---------- multiplication methods -----------
     @Override
     public Scalar mul(Scalar s) {
         return s.mul_rati(this);
@@ -53,7 +54,7 @@ public class RationalScalar implements Scalar {
         return new RationalScalar(this.numerator * r.numerator, this.denominator * r.denominator);
     }
 
-
+// --------------- Scalar methods --------------
     public RationalScalar neg() {
         return new RationalScalar(-numerator, denominator);
     }
@@ -79,6 +80,8 @@ public class RationalScalar implements Scalar {
 
     }
 
+// -------------- class methods ----------------
+
     public RationalScalar reduce() {
         /*
          * A basic reduction method for rational numbers using the GDC recursive method.
@@ -90,29 +93,6 @@ public class RationalScalar implements Scalar {
         return new RationalScalar(new_num, new_denum);
     }
 
-
-    public static RationalScalar reduce(int a, int b) {
-        /*
-         * A static variant of the reduce method, allowing easier debugging.
-         * @param a - The numerator of the rational number
-         * @param b - The denominator of the rational number
-         */
-        int gdc = GDC(a, b);
-        int new_num = a/gdc;
-        int new_denum = b/gdc;
-        return new RationalScalar(new_num, new_denum);
-    }
-    public static int GDC(int a,int b){
-        /*
-         * A recursive method for finding the greatest common divisor of two numbers.
-         * @param a - The first number.
-         * @param b - The second number.
-         */
-        if(a % b == 0){
-            return b;
-        }
-        return GDC(b, a % b);
-    }
 
     @Override
     public boolean equals(Object obj) {
@@ -141,5 +121,29 @@ public class RationalScalar implements Scalar {
         int temp_denom = new IntegerScalar(this.denominator).sign();
         RationalScalar temp = this.reduce();
         return abs(temp.numerator) * temp_nom + "/" + abs(temp.denominator) * temp_denom;
+    }
+
+// ----------------- static methods ------------------
+    public static RationalScalar reduce(int a, int b) {
+        /*
+         * A static variant of the reduce method, allowing easier debugging.
+         * @param a - The numerator of the rational number
+         * @param b - The denominator of the rational number
+         */
+        int gdc = GDC(a, b);
+        int new_num = a/gdc;
+        int new_denum = b/gdc;
+        return new RationalScalar(new_num, new_denum);
+    }
+    public static int GDC(int a,int b){
+        /*
+         * A recursive method for finding the greatest common divisor of two numbers.
+         * @param a - The first number.
+         * @param b - The second number.
+         */
+        if(a % b == 0){
+            return b;
+        }
+        return GDC(b, a % b);
     }
 }

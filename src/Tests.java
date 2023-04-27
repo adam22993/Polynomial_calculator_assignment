@@ -76,7 +76,7 @@ public class Tests {
 //        for (Scalar var : varArray) {
 //                result = new IntegerScalar(0); // reset result for next test
 //                result = var.power(3);
-//                Assertions.assertEquals(Math.pow(var.getValue(), 3), result.getValue()); // test if result is equal to the value of the result raised to the power of 3
+//                Assertions.assertEquals(Math.pow(var.getValue, 3), result.getValue()); // test if result is equal to the value of the result raised to the power of 3
 //        }
 //    }
     @Test
