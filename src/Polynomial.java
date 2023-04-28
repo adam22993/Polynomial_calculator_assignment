@@ -6,7 +6,7 @@ public class Polynomial {
     public Polynomial(TreeMap<String, Monomial> monomials) {
         TreeMap<String, Monomial> new_tree = new TreeMap<>();
         for (Monomial m : monomials.values()) {
-            String temp = m.toString().split("x")[1];
+            String temp = m.toString().split("x")[1]; // 5x^2[1] ["5", "^2"]
             new_tree.put(temp, m);
         }
         this.monomials = new_tree;
@@ -17,6 +17,7 @@ public class Polynomial {
     }
 
     public Polynomial add(Polynomial p) {
+        // todo removed unnecessary code (the loop at the end was not needed)
         TreeMap<String, Monomial> first_tree = new TreeMap<>();
         for (Monomial m : this.monomials.values()) {
             String temp = m.toString().split("x")[1];
@@ -27,15 +28,22 @@ public class Polynomial {
             String temp = m.toString().split("x")[1];
             second_tree.put(temp, m);
         }
+
         StringBuilder toBuild = new StringBuilder();
-        TreeMap<String, Monomial> smaller_tree;
+        TreeMap<String, Monomial> smaller_tree, bigger_tree;
+        String[] keySet1 = first_tree.keySet().toArray(new String[0]); //["^0", "^1", "^2"]
+        String[] keySet2 = second_tree.keySet().toArray(new String[0]);
+        String[] bigger_keySet;
         if (first_tree.size() < second_tree.size()) {
             smaller_tree = first_tree;
+            bigger_tree = second_tree;
+            bigger_keySet = bigger_tree.keySet().toArray(new String[0]);
         } else {
             smaller_tree = second_tree;
+            bigger_tree = first_tree;
+            bigger_keySet = bigger_tree.keySet().toArray(new String[0]);
         }
-        String[] keySet1 = first_tree.keySet().toArray(new String[0]);
-        String[] keySet2 = second_tree.keySet().toArray(new String[0]);
+
 
         for (int i = 0; i < smaller_tree.size(); i++) {
             Scalar m = first_tree.getOrDefault(keySet1[i], new Monomial(new IntegerScalar(0), 0)).getCoefficient();
@@ -43,15 +51,11 @@ public class Polynomial {
             Scalar res = m.add(m2);
             toBuild.append(" ").append(res);
         }
-        if (first_tree.size() > second_tree.size()) {
-            for (int i = smaller_tree.size(); i < first_tree.size(); i++) {
-                toBuild.append(" ").append(first_tree.get(keySet1[i]).getCoefficient());
-            }
-        } else {
-            for (int i = smaller_tree.size(); i < second_tree.size(); i++) {
-                toBuild.append(" ").append(second_tree.get(keySet2[i]).getCoefficient());
-            }
+
+        for (int i = smaller_tree.size(); i < bigger_tree.size(); i++) {
+            toBuild.append(" ").append(bigger_tree.get(bigger_keySet[i]).getCoefficient());
         }
+
         toBuild.deleteCharAt(0);
         return Polynomial.build(toBuild.toString());
     }
@@ -71,10 +75,10 @@ public class Polynomial {
         StringBuilder toBuild = new StringBuilder();
         TreeMap<String, Monomial> res_tree = new TreeMap<>();
 
-        for (Monomial m : first_tree.values()) {
+        for (Monomial m1 : first_tree.values()) { // (2+3x+5x^2) * (3+4x+6x^3) = 6 + 8x + 12x^3 + 9x^2 + 12x^4 + 18x^5
             for (Monomial m2 : second_tree.values()) {
-                Scalar res_co = m.getCoefficient().mul(m2.getCoefficient());
-                int res_ex = m.getExponent() + m2.getExponent();
+                Scalar res_co = m1.getCoefficient().mul(m2.getCoefficient());
+                int res_ex = m1.getExponent() + m2.getExponent();
                 Monomial current_mon = res_tree.getOrDefault("^" + res_ex, new Monomial(new IntegerScalar(0), 0));
                 Monomial res_mon = new Monomial(res_co.add(current_mon.getCoefficient()), res_ex);
                 res_tree.put("^" + res_ex, res_mon);

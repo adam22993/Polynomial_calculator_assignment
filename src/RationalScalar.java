@@ -8,6 +8,10 @@ public class RationalScalar implements Scalar {
 
 // -------------- constructors -----------------
     public RationalScalar(int numerator) {
+        /*
+         *  Mainly used to debug when the denominator is not important
+         * @param numerator - the numerator of the rational scalar
+         */
         this.numerator = numerator;
         this.denominator = 1;
     }
@@ -56,7 +60,7 @@ public class RationalScalar implements Scalar {
 
 // --------------- Scalar methods --------------
     public RationalScalar neg() {
-        return new RationalScalar(-numerator, denominator);
+        return new RationalScalar(-this.numerator, this.denominator);
     }
 
     public RationalScalar power(int exponent) {
@@ -77,7 +81,6 @@ public class RationalScalar implements Scalar {
             return 1;
         }
         return -1;
-
     }
 
 // -------------- class methods ----------------
@@ -89,19 +92,22 @@ public class RationalScalar implements Scalar {
         int gdc = GDC(this.numerator, this.denominator);
         int new_num = this.numerator/gdc;
         int new_denum = this.denominator/gdc;
-
         return new RationalScalar(new_num, new_denum);
     }
 
 
     @Override
     public boolean equals(Object obj) {
+        /*
+         * todo: check object fields to test what happens to r_nom and r_denom. object can have a minus sign
+         *       in the numerator or denominator.
+         */
         if (obj == this)
             return true;
         if (!(obj instanceof RationalScalar))
             return false;
-        /* taking the signs of the numbers into account, turning them absolute and comparing them with the original signs after reduction.
-         *
+        /*
+         * taking the signs of the numbers into account, turning them absolute and comparing them with the original signs after reduction.
          */
         int r_nom = ((RationalScalar) obj).sign();
         int r_denom = ((RationalScalar) obj).sign();
@@ -113,9 +119,11 @@ public class RationalScalar implements Scalar {
     }
 
     public String toString() {
+        // todo add abs function
+        // todo return a rational number as a string and the sign infront of it
         if (this.numerator % this.denominator == 0) {
-            int temp = this.numerator / this.denominator;
-            return new IntegerScalar(temp).toString();
+            int temp_int = this.numerator / this.denominator;
+            return new IntegerScalar(temp_int).toString();
         }
         int temp_nom = new IntegerScalar(this.numerator).sign();
         int temp_denom = new IntegerScalar(this.denominator).sign();

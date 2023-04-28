@@ -1,4 +1,5 @@
 public class IntegerScalar implements Scalar {
+
 // ----------------- fields -------------------
     private final int number;
 
@@ -52,7 +53,11 @@ public class IntegerScalar implements Scalar {
 
     @Override
     public Scalar power(int exponent) {
-        return new IntegerScalar((int) Math.pow(this.number, exponent));
+        IntegerScalar result = new IntegerScalar(1);
+        for (int i = 0; i < exponent; i++) {
+            result.mul(this);
+        }
+        return result;
     }
 
     @Override
@@ -75,5 +80,17 @@ public class IntegerScalar implements Scalar {
 
     public String toString() {
         return Integer.toString(this.number);
+    }
+// ---------------- Debug methods --------------------
+
+    @Override
+    public Scalar getValue() {
+        return getValue(this);
+    }
+    public Scalar getValue(IntegerScalar i) {
+        return i;
+    }
+    public Scalar getValue(RationalScalar r) {
+        return r;
     }
 }

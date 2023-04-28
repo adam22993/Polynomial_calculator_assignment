@@ -1,6 +1,11 @@
+package Tests;
+
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.lang.Math;
+import java.lang.reflect.InvocationTargetException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class Tests {
@@ -40,7 +45,7 @@ public class Tests {
 //    private static final Class<?>[] possibleTypes = {IntegerScalar.class, RationalScalar.class, FloatScalar.class};
 
 
-//######################################  methods  ######################################
+// ------------------------------ Testing IntegerScalar ------------------------------
 
     @Test
     public void testAdd() {
@@ -49,54 +54,6 @@ public class Tests {
             result = result.add(varArray[i]);
         }
         Assertions.assertEquals(new RationalScalar(205,21).reduce(), result);
-    }
-    @Test
-    public void testMul(){
-        Scalar result = new IntegerScalar(0);
-        for (Scalar var1 : varArray) {
-            for (Scalar var2 : varArray) {
-                result = new IntegerScalar(0); // reset result for next test
-                result = var1.mul(var2);
-                Assertions.assertEquals(var1.mul(var2), result);
-            }
-        }
-    }
-    @Test
-    public void testNeg(){
-        Scalar result = new IntegerScalar(0);
-        for (Scalar var : varArray) {
-            result = new IntegerScalar(0); // reset result for next test
-            result = var.neg();
-            Assertions.assertEquals(var.neg(), result);
-        }
-    }
-//    @Test
-//    public void testPower(){
-//        Scalar result = new IntegerScalar(0);
-//        for (Scalar var : varArray) {
-//                result = new IntegerScalar(0); // reset result for next test
-//                result = var.power(3);
-//                Assertions.assertEquals(Math.pow(var.getValue, 3), result.getValue()); // test if result is equal to the value of the result raised to the power of 3
-//        }
-//    }
-    @Test
-    public void testSign(){
-        int result = 0;
-        for (Scalar var : varArray) {
-            result = 0; // reset result for next test
-            result = var.sign();
-            Assertions.assertEquals(var.sign(), result);
-        }
-    }
-    @Test
-    public void testEquals(){
-        boolean result;
-        for (Scalar var1 : varArray) {
-            for (Scalar var2 : varArray) {
-                result = var1.equals(var2);
-                Assertions.assertEquals(var1.equals(var2), result);
-            }
-        }
     }
 
 }

@@ -26,8 +26,6 @@ public class Monomial {
         return new Monomial(this.coefficient.mul(m.coefficient), this.exponent + m.exponent);
     }
 
-
-
     public boolean equals(Object obj) {
         if (obj == this)
             return true;
@@ -51,5 +49,6 @@ public class Monomial {
 
     public Scalar evaluate(Scalar s) {
         return this.coefficient.mul(s.power(this.exponent));
+
     }
 }
