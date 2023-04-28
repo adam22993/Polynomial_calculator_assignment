@@ -1,19 +1,21 @@
+package Polynomial.Scalar;
+
 public class IntegerScalar implements Scalar {
 
-// ----------------- fields -------------------
+    // ----------------- fields -------------------
     private final int number;
 
-// --------------- constructors ---------------
+    // --------------- constructors ---------------
     public IntegerScalar(int number) {
         this.number = number;
     }
 
-// ----------------- getters ------------------
+    // ----------------- getters ------------------
     public int getNumber() {
         return number;
     }
 
-// ------------- addition methods -------------
+    // ------------- addition methods -------------
     @Override
     public Scalar add(Scalar s) {
         return s.add_int(this);
@@ -29,7 +31,7 @@ public class IntegerScalar implements Scalar {
         return new RationalScalar(this.number * r.getDenominator() + r.getNumerator(), r.getDenominator());
     }
 
-// ---------- multiplication methods ----------
+    // ---------- multiplication methods ----------
     @Override
     public Scalar mul(Scalar s) {
         return s.mul_int(this);
@@ -45,7 +47,7 @@ public class IntegerScalar implements Scalar {
         return new RationalScalar(this.number * r.getNumerator(), r.getDenominator());
     }
 
-// ------------- Scalar methods --------------
+    // ------------- Polynomial.Polynomial.Scalar.Scalar methods --------------
     @Override
     public IntegerScalar neg() {
         return new IntegerScalar(-number);
@@ -53,9 +55,15 @@ public class IntegerScalar implements Scalar {
 
     @Override
     public Scalar power(int exponent) {
-        IntegerScalar result = new IntegerScalar(1);
-        for (int i = 0; i < exponent; i++) {
-            result.mul(this);
+        // Added exponent == 0 case.
+        Scalar result = new IntegerScalar(this.number);
+        Scalar og_number = new IntegerScalar(this.number);
+        if (exponent == 0) {
+            return new IntegerScalar(1);
+        }
+        // skip i = 1 because we already have the original number.
+        for (int i = 2; i <= exponent; i++) {
+            result = result.mul(og_number);
         }
         return result;
     }
@@ -66,7 +74,7 @@ public class IntegerScalar implements Scalar {
         return Integer.signum(number);
     }
 
-// ---------------- class methods --------------------
+    // ---------------- class methods --------------------
     @Override
     public boolean equals(Object obj) {
         if (obj == this)
@@ -78,19 +86,12 @@ public class IntegerScalar implements Scalar {
         return this.number == ((IntegerScalar) obj).number;
     }
 
+    @Override
+    public Scalar reduce() {
+        return this;
+    }
+
     public String toString() {
         return Integer.toString(this.number);
-    }
-// ---------------- Debug methods --------------------
-
-    @Override
-    public Scalar getValue() {
-        return getValue(this);
-    }
-    public Scalar getValue(IntegerScalar i) {
-        return i;
-    }
-    public Scalar getValue(RationalScalar r) {
-        return r;
     }
 }

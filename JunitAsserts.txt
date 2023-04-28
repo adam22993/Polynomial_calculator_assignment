@@ -1,5 +1,5 @@
 JUnit is a popular Java testing framework that provides several built-in assert methods to help
-you check the results of your Tests.Tests.Calculator.tests. Here are some of the most commonly used assert methods in JUnit:
+you check the results of your Tests.TestsMain.TestsMain.TestsMain.Polynomial.Polynomial.tests. Here are some of the most commonly used assert methods in JUnit:
 
 assertEquals():
 This method checks if two values are equal.
@@ -45,7 +45,7 @@ You can use this method to test if your code meets certain performance requireme
 assertTimeoutPreemptively():
 This method is similar to assertTimeout(),
 but it will interrupt the test if the code being tested takes too long to execute.
-You can use this method to prevent long-running Tests.Tests.Calculator.tests from interfering with other Tests.Tests.Calculator.tests.
+You can use this method to prevent long-running Tests.TestsMain.TestsMain.TestsMain.Polynomial.Polynomial.tests from interfering with other Tests.TestsMain.TestsMain.TestsMain.Polynomial.Polynomial.tests.
 
 assertLinesMatch():
 This method checks if two lists of strings match.

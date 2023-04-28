@@ -1,3 +1,5 @@
+package Polynomial.Scalar;
+
 import static java.lang.Math.abs;
 
 public class RationalScalar implements Scalar {
@@ -16,8 +18,17 @@ public class RationalScalar implements Scalar {
         this.denominator = 1;
     }
     public RationalScalar(int numerator, int denominator) {
-        this.numerator = numerator;
-        this.denominator = denominator;
+        int gcd = GDC(abs(numerator), abs(denominator));
+        if (numerator == 0){
+            this.numerator = 0;
+            this.denominator = 1;
+        } else if (denominator < 0){
+            this.numerator = -numerator/gcd;
+            this.denominator = -denominator/gcd;
+        } else {
+            this.numerator = numerator/gcd;
+            this.denominator = denominator/gcd;
+        }
     }
 
 // ---------------- getters --------------------
@@ -64,9 +75,13 @@ public class RationalScalar implements Scalar {
     }
 
     public RationalScalar power(int exponent) {
+        // Added exponent == 0 case.
+        if (exponent == 0) {
+            return new RationalScalar(1);
+        }
         int result_num = 1;
         int result_denom = 1;
-        for (int i = 0; i < exponent; i++) {
+        for (int i = 1; i <= exponent; i++) {
             result_num *= this.numerator;
             result_denom *= this.denominator;
         }
@@ -92,6 +107,9 @@ public class RationalScalar implements Scalar {
         int gdc = GDC(this.numerator, this.denominator);
         int new_num = this.numerator/gdc;
         int new_denum = this.denominator/gdc;
+        if (new_num == 0){
+            return new RationalScalar(0);
+        }
         return new RationalScalar(new_num, new_denum);
     }
 

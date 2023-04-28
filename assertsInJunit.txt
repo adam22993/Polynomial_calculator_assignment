@@ -250,11 +250,11 @@ public class Assertions {
         AssertEquals.assertEquals(expected, actual);
     }
 
-    public static void assertEquals(int expected, Calculator.Scalar.Scalar.IntegerScalar actual) {
+    public static void assertEquals(int expected, Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar actual) {
         AssertEquals.assertEquals(expected, actual);
     }
 
-    public static void assertEquals(Calculator.Scalar.Scalar.IntegerScalar expected, int actual) {
+    public static void assertEquals(Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar expected, int actual) {
         AssertEquals.assertEquals(expected, actual);
     }
 
@@ -262,7 +262,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertEquals(Calculator.Scalar.Scalar.IntegerScalar expected, Calculator.Scalar.Scalar.IntegerScalar actual) {
+    public static void assertEquals(Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar expected, Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar actual) {
         AssertEquals.assertEquals(expected, actual);
     }
 
@@ -270,11 +270,11 @@ public class Assertions {
         AssertEquals.assertEquals(expected, actual, message);
     }
 
-    public static void assertEquals(int expected, Calculator.Scalar.Scalar.IntegerScalar actual, String message) {
+    public static void assertEquals(int expected, Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar actual, String message) {
         AssertEquals.assertEquals(expected, actual, message);
     }
 
-    public static void assertEquals(Calculator.Scalar.Scalar.IntegerScalar expected, int actual, String message) {
+    public static void assertEquals(Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar expected, int actual, String message) {
         AssertEquals.assertEquals(expected, actual, message);
     }
 
@@ -282,7 +282,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertEquals(Calculator.Scalar.Scalar.IntegerScalar expected, Calculator.Scalar.Scalar.IntegerScalar actual, String message) {
+    public static void assertEquals(Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar expected, Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar actual, String message) {
         AssertEquals.assertEquals(expected, actual, message);
     }
 
@@ -290,11 +290,11 @@ public class Assertions {
         AssertEquals.assertEquals(expected, actual, messageSupplier);
     }
 
-    public static void assertEquals(int expected, Calculator.Scalar.Scalar.IntegerScalar actual, Supplier<String> messageSupplier) {
+    public static void assertEquals(int expected, Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar actual, Supplier<String> messageSupplier) {
         AssertEquals.assertEquals(expected, actual, messageSupplier);
     }
 
-    public static void assertEquals(Calculator.Scalar.Scalar.IntegerScalar expected, int actual, Supplier<String> messageSupplier) {
+    public static void assertEquals(Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar expected, int actual, Supplier<String> messageSupplier) {
         AssertEquals.assertEquals(expected, actual, messageSupplier);
     }
 
@@ -302,7 +302,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertEquals(Calculator.Scalar.Scalar.IntegerScalar expected, Calculator.Scalar.Scalar.IntegerScalar actual, Supplier<String> messageSupplier) {
+    public static void assertEquals(Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar expected, Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar actual, Supplier<String> messageSupplier) {
         AssertEquals.assertEquals(expected, actual, messageSupplier);
     }
 
@@ -954,7 +954,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertNotEquals(int unexpected, Calculator.Scalar.Scalar.IntegerScalar actual) {
+    public static void assertNotEquals(int unexpected, Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar actual) {
         AssertNotEquals.assertNotEquals(unexpected, actual);
     }
 
@@ -962,7 +962,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertNotEquals(Calculator.Scalar.Scalar.IntegerScalar unexpected, int actual) {
+    public static void assertNotEquals(Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar unexpected, int actual) {
         AssertNotEquals.assertNotEquals(unexpected, actual);
     }
 
@@ -970,7 +970,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertNotEquals(Calculator.Scalar.Scalar.IntegerScalar unexpected, Calculator.Scalar.Scalar.IntegerScalar actual) {
+    public static void assertNotEquals(Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar unexpected, Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar actual) {
         AssertNotEquals.assertNotEquals(unexpected, actual);
     }
 
@@ -986,7 +986,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertNotEquals(int unexpected, Calculator.Scalar.Scalar.IntegerScalar actual, String message) {
+    public static void assertNotEquals(int unexpected, Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar actual, String message) {
         AssertNotEquals.assertNotEquals(unexpected, actual, message);
     }
 
@@ -994,7 +994,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertNotEquals(Calculator.Scalar.Scalar.IntegerScalar unexpected, int actual, String message) {
+    public static void assertNotEquals(Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar unexpected, int actual, String message) {
         AssertNotEquals.assertNotEquals(unexpected, actual, message);
     }
 
@@ -1002,7 +1002,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertNotEquals(Calculator.Scalar.Scalar.IntegerScalar unexpected, Calculator.Scalar.Scalar.IntegerScalar actual, String message) {
+    public static void assertNotEquals(Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar unexpected, Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar actual, String message) {
         AssertNotEquals.assertNotEquals(unexpected, actual, message);
     }
 
@@ -1018,7 +1018,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertNotEquals(int unexpected, Calculator.Scalar.Scalar.IntegerScalar actual, Supplier<String> messageSupplier) {
+    public static void assertNotEquals(int unexpected, Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar actual, Supplier<String> messageSupplier) {
         AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
     }
 
@@ -1026,7 +1026,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertNotEquals(Calculator.Scalar.Scalar.IntegerScalar unexpected, int actual, Supplier<String> messageSupplier) {
+    public static void assertNotEquals(Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar unexpected, int actual, Supplier<String> messageSupplier) {
         AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
     }
 
@@ -1034,7 +1034,7 @@ public class Assertions {
         status = Status.STABLE,
         since = "5.4"
     )
-    public static void assertNotEquals(Calculator.Scalar.Scalar.IntegerScalar unexpected, Calculator.Scalar.Scalar.IntegerScalar actual, Supplier<String> messageSupplier) {
+    public static void assertNotEquals(Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar unexpected, Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.Scalar.Polynomial.Polynomial.Scalar.IntegerScalar actual, Supplier<String> messageSupplier) {
         AssertNotEquals.assertNotEquals(unexpected, actual, messageSupplier);
     }
 

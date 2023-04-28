@@ -1,4 +1,7 @@
+package Polynomial;
+
 import java.util.TreeMap;
+import Polynomial.Scalar.*;
 
 public class Polynomial {
     public final TreeMap<String, Monomial> monomials;
@@ -164,30 +167,30 @@ public class Polynomial {
 
 
 
-//    public Polynomial mul(Polynomial p) {
+//    public Polynomial.Polynomial mul(Polynomial.Polynomial p) {
 //        /*
 //         * docstring: multiply two polynomials together and return the result as a new polynomial
 //         * it is done by multiplying the monomials with the same exponent together and put them into a new polynomial
 //         * after the multiplication, the new polynomial will have all the monomials from both polynomials
 //         *
 //         */
-//        TreeMap<String, Monomial> this_p = new TreeMap<>();
+//        TreeMap<String, Polynomial.Polynomial.Monomial> this_p = new TreeMap<>();
 //        for (String key : monomials.keySet()) {
 //            for (String key2 : p.monomials.keySet()) {
-//                Monomial m = getItem(key).mul(p.getItem(key2));
+//                Polynomial.Polynomial.Monomial m = getItem(key).mul(p.getItem(key2));
 //                String new_key = m.getCoefficient().toString() + "x^" + m.getExponent();
-//                this_p.put(new_key, m.add(this_p.getOrDefault(new_key, new Monomial(new IntegerScalar(0), 0))));
+//                this_p.put(new_key, m.add(this_p.getOrDefault(new_key, new Polynomial.Polynomial.Monomial(new Polynomial.Polynomial.Scalar.IntegerScalar(0), 0))));
 //            }
 //        }
-//        return new Polynomial(this_p);
+//        return new Polynomial.Polynomial(this_p);
 //    }
-//    public Scalar evaluate(Scalar s) {
+//    public Polynomial.Polynomial.Scalar.Scalar evaluate(Polynomial.Polynomial.Scalar.Scalar s) {
 //        /*
 //         * docstring: evaluate the polynomial at a given value
 //         * it is done by evaluating each monomial and add them together
 //         *
 //         */
-//        Scalar result = new IntegerScalar(0);
+//        Polynomial.Polynomial.Scalar.Scalar result = new Polynomial.Polynomial.Scalar.IntegerScalar(0);
 //        for (String key : monomials.keySet()) {
 //            result = result.add(getItem(key).evaluate(s));
 //        }
@@ -201,17 +204,17 @@ public class Polynomial {
 //        s = new StringBuilder(s.toString().replace(" + -", " - "));
 //        return s.substring(0, s.length() - 3);
 //    }
-//    public Polynomial derivative() {
-//        TreeMap<String, Monomial> this_p = new TreeMap<>();
+//    public Polynomial.Polynomial derivative() {
+//        TreeMap<String, Polynomial.Polynomial.Monomial> this_p = new TreeMap<>();
 //        for (String key : monomials.keySet()) {
-//            Monomial m = getItem(key).derivative();
+//            Polynomial.Polynomial.Monomial m = getItem(key).derivative();
 //            String new_key = m.getCoefficient().toString() + "x^" + m.getExponent();
-//            this_p.put(new_key, m.add(this_p.getOrDefault(new_key, new Monomial(new IntegerScalar(0), 0))));
+//            this_p.put(new_key, m.add(this_p.getOrDefault(new_key, new Polynomial.Polynomial.Monomial(new Polynomial.Polynomial.Scalar.IntegerScalar(0), 0))));
 //        }
-//        return new Polynomial(this_p);
+//        return new Polynomial.Polynomial(this_p);
 //    }
 //}
-//        TreeMap<String, Monomial> this_p = new TreeMap<>();
+//        TreeMap<String, Polynomial.Polynomial.Monomial> this_p = new TreeMap<>();
 //        for (String key : monomials.keySet()) {
 //            this_p.put(key, getItem(key).add(p.getItem(key)));
 //        }
@@ -220,21 +223,21 @@ public class Polynomial {
 //                this_p.put(key, p.getItem(key));
 //            }
 //        }
-//        return new Polynomial(this_p);
+//        return new Polynomial.Polynomial(this_p);
 
 //  String[] buildingBlock = s.split(" ");
-//        Monomial[] valuesToCalc = new Monomial[buildingBlock.length];
+//        Polynomial.Polynomial.Monomial[] valuesToCalc = new Polynomial.Polynomial.Monomial[buildingBlock.length];
 //        for (int i = 0; i < buildingBlock.length; i++) {
 //            // i need to create an array of monomials with the coefficients from the string given, and the exponents from 0 to n-1. it could be rationalscalar as well as integerscalar.
 //        }
-//        TreeMap<String, Monomial> this_p = new TreeMap<>();
+//        TreeMap<String, Polynomial.Polynomial.Monomial> this_p = new TreeMap<>();
 //        int exponent = 0;
 //        for (String curr : buildingBlock) {
-//            Monomial m = new Monomial(new IntegerScalar(Integer.parseInt(curr)), exponent);
+//            Polynomial.Polynomial.Monomial m = new Polynomial.Polynomial.Monomial(new Polynomial.Polynomial.Scalar.IntegerScalar(Integer.parseInt(curr)), exponent);
 //            String new_key = m.getCoefficient().toString() + "x^" + m.getExponent();
 //            this_p.put(new_key, m);
 //            exponent += 1;
 //        }
-//        return new Polynomial(this_p);
+//        return new Polynomial.Polynomial(this_p);
 //    }
-//      return monomials.values().stream().map(monomial -> monomial.evaluate(s)).reduce(new IntegerScalar(0), Scalar::add);
+//      return monomials.values().stream().map(monomial -> monomial.evaluate(s)).reduce(new Polynomial.Polynomial.Scalar.IntegerScalar(0), Polynomial.Polynomial.Scalar.Scalar::add);

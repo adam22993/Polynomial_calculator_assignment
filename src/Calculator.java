@@ -1,3 +1,7 @@
+import Polynomial.Polynomial;
+import Polynomial.Scalar.IntegerScalar;
+import Polynomial.Scalar.Scalar;
+
 import java.util.Scanner;
 public class Calculator {
     /*
@@ -13,7 +17,7 @@ public class Calculator {
 
 
     public void start(){
-        System.out.println("Welcome to the Polynomial Calculator!");
+        System.out.println("Welcome to the Polynomial.Polynomial Calculator!");
         int choice = 0;
         while (choice != 5){
             System.out.println("Please select an operation:");

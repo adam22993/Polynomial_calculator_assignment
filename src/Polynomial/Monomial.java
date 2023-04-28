@@ -1,3 +1,8 @@
+package Polynomial;
+
+import Polynomial.Scalar.IntegerScalar;
+import Polynomial.Scalar.Scalar;
+
 public class Monomial {
     private final Scalar coefficient;
     private final int exponent;
