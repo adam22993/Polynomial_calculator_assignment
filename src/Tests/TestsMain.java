@@ -1,12 +1,8 @@
 package Tests;
 import Polynomial.Monomial;
 import Polynomial.Scalar.*;
-import org.junit.jupiter.api.Assertions;
-import Tests.TestsMain;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestsMain {
     // -------------------------- variables --------------------------------
@@ -33,7 +29,7 @@ public class TestsMain {
     static Scalar r9 = new RationalScalar(1, 2);
     static Scalar r10 = new RationalScalar(4, 9);
     public static final Scalar[] varArray = {i0, r0, i1, r1, i2, r2, i3, r3, i4, r4, i5, r5, i6, r6, i7, r7, i8, r8, i9, r9, i10, r10};
-    //0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,  21
+                                            //0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,  21
 
 // ------------------------ Scalar Tests ----------------------------
 
@@ -193,13 +189,13 @@ public class TestsMain {
     public void testEquals() {
         // TODO am not sure how to implement this method.
         // really dont know wtf is going on here and what to do.
-        Scalar result;
+        Monomial result;
         System.out.println("Starting testEquals()");
         System.out.println("First test: ");
         for (int i = 0; i < varArray.length; i++) {
-            result = varArray[i].reduce();
+            result = new Monomial(varArray[i].reduce(),0);
             System.out.printf("i: %d %s\n", i, result);
-            assertEquals(varArray[i].reduce().toString(), result.reduce().toString());
+            assertEquals(varArray[i].reduce().toString(), result.toString());
         }
         System.out.println("Finished testEquals()\n");
     }
@@ -208,15 +204,15 @@ public class TestsMain {
     public void testDerivative() {
         // TODO am not sure how to implement this method.
         // Not the same value when comparing Monomial to Polynomial.
-        Polynomial.Polynomial result;
+        Monomial result;
         Monomial toTest;
         System.out.println("Starting testDerivative()");
         System.out.println("First test: ");
         for (int i = 0; i < varArray.length; i++) {
-            result = Polynomial.Polynomial.build("0 0 " + new Monomial(varArray[i], 0).getCoefficient().toString()).derivative();
+            result = Polynomial.Polynomial.build("0 0 " + varArray[i]).derivative().getItem("^1");
             System.out.printf("i: %d %s\n", i, result);
             toTest = new Monomial(varArray[i], 2).derivative();
-            assertEquals(toTest, result + "^1");
+            assertEquals(toTest, result);
         }
         System.out.println("Finished testDerivative()\n");
     }

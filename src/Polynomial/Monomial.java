@@ -58,6 +58,9 @@ public class Monomial {
         if (new_ex < 0) {
             new_ex = 0;
         }
+//        if (new_co.equals(new IntegerScalar(0))) {
+//            return null;
+//        }
         return new Monomial(new_co, new_ex);
     }
 

@@ -14,9 +14,15 @@ public class RationalScalar implements Scalar {
          *  Mainly used to debug when the denominator is not important
          * @param numerator - the numerator of the rational scalar
          */
-        this.numerator = numerator;
-        this.denominator = 1;
+        if (numerator == 0) {
+            this.numerator = 0;
+            this.denominator = 1;
+        } else {
+            this.numerator = numerator;
+            this.denominator = 1;
+        }
     }
+
     public RationalScalar(int numerator, int denominator) {
         int gcd = GDC(abs(numerator), abs(denominator));
         if (numerator == 0){
@@ -112,7 +118,6 @@ public class RationalScalar implements Scalar {
         }
         return new RationalScalar(new_num, new_denum);
     }
-
 
     @Override
     public boolean equals(Object obj) {

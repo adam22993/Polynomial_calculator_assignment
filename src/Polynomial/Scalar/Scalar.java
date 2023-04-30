@@ -4,9 +4,9 @@ public interface Scalar {
     /*
      * This interface represents the methods that should be implemented by a scalar.
      * The polymorphism of the scalar is achieved by the Polynomial.Polynomial.Scalar.Scalar interface.
-     * The Polynomial.Polynomial.Scalar.Scalar interface is implemented by the Polynomial.Polynomial.Scalar.IntegerScalar and Polynomial.Polynomial.Scalar.RationalScalar classes.
-     * Polynomial.Polynomial.Monomial and Polynomial.Polynomial classes use the Polynomial.Polynomial.Scalar.Scalar interface to perform operations on the scalars.
-     * To add more scalars, you need to add the appropriate methods to the Polynomial.Polynomial.Scalar.Scalar interface, then
+     * The Polynomial.Polynomial.Scalar.Scalar interface is implemented by the IntegerScalar and RationalScalar classes.
+     * Polynomial.Polynomial.Monomial and Polynomial.Polynomial classes use the Scalar interface to perform operations on the scalars.
+     * To add more scalars, you need to add the appropriate methods to the Scalar interface, then
      * implement all the methods in the new scalar class.
      * If implemented incorrectly, the program will not work correctly if even at all.
      * Various design patterns were checked in the process of learning and creating this program.
