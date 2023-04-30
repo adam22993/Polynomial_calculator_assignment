@@ -24,7 +24,7 @@ public class RationalScalar implements Scalar {
     }
 
     public RationalScalar(int numerator, int denominator) {
-        int gcd = GDC(abs(numerator), abs(denominator));
+        int gcd = GCD(abs(numerator), abs(denominator));
         if (numerator == 0){
             this.numerator = 0;
             this.denominator = 1;
@@ -110,7 +110,7 @@ public class RationalScalar implements Scalar {
         /*
          * A basic reduction method for rational numbers using the GDC recursive method.
          */
-        int gdc = GDC(this.numerator, this.denominator);
+        int gdc = GCD(this.numerator, this.denominator);
         int new_num = this.numerator/gdc;
         int new_denum = this.denominator/gdc;
         if (new_num == 0){
@@ -154,18 +154,25 @@ public class RationalScalar implements Scalar {
     }
 
 // ----------------- static methods ------------------
-    public static RationalScalar reduce(int a, int b) {
+
+
+    public static Scalar reduce(int a, int b) {
         /*
          * A static variant of the reduce method, allowing easier debugging.
          * @param a - The numerator of the rational number
          * @param b - The denominator of the rational number
          */
-        int gdc = GDC(a, b);
+        int gdc = GCD(a, b);
         int new_num = a/gdc;
         int new_denum = b/gdc;
+        if (new_num == 0){
+            return new IntegerScalar(0);
+        } else if (new_denum == 1){
+            return new IntegerScalar(new_num);
+        }
         return new RationalScalar(new_num, new_denum);
     }
-    public static int GDC(int a,int b){
+    public static int GCD(int a, int b){
         /*
          * A recursive method for finding the greatest common divisor of two numbers.
          * @param a - The first number.
@@ -174,7 +181,7 @@ public class RationalScalar implements Scalar {
         if(a % b == 0){
             return b;
         }
-        return GDC(b, a % b);
+        return GCD(b, a % b);
     }
     public static int abs(int a) {
         /*

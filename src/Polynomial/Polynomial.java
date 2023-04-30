@@ -115,7 +115,7 @@ public class Polynomial {
                 tree.put("^" + split[1], new Monomial(new RationalScalar(Integer.parseInt(temp[0]), Integer.parseInt(temp[1])), Integer.parseInt(split[1])));
             continue;
         }
-            tree.put("^" + split[1], new Monomial(new RationalScalar(Integer.parseInt(split[0])), Integer.parseInt(split[1])));
+            tree.put("^" + split[1], new Monomial(new IntegerScalar(Integer.parseInt(split[0])), Integer.parseInt(split[1])));
         }
         return new Polynomial(tree);
     }

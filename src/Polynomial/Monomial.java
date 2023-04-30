@@ -68,4 +68,8 @@ public class Monomial {
         return this.coefficient.mul(s.power(this.exponent));
 
     }
+
+    public Monomial reduce() {
+        return new Monomial(this.coefficient.reduce(), this.exponent);
+    }
 }

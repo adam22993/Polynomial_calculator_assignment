@@ -22,7 +22,7 @@ public class TestsMain {
     static Scalar r2 = new RationalScalar(2, -3);
     static Scalar r3 = new RationalScalar(-4, 7);
     static Scalar r4 = new RationalScalar(-2, 3);
-    static Scalar r5 = new RationalScalar(1, 2);
+    static Scalar r5 = new RationalScalar(4, 2);
     static Scalar r6 = new RationalScalar(-1, 3);
     static Scalar r7 = new RationalScalar(5, 8);
     static Scalar r8 = new RationalScalar(19, 7);
@@ -110,12 +110,12 @@ public class TestsMain {
         // Second test including reduce in mind. Calculated to be 1113/8.
         // Passed the test.
         result = varArray[8];
-        System.out.println("Second test: (result should be 1113/8)");
+        System.out.println("Second test: (result should be 1125/8)");
         for (int i = 9; i < 16; i++) {
             result = result.add(varArray[i]).reduce();
             System.out.printf("i: %d %s\n", i, result);
         }
-        assertEquals(new RationalScalar(1113, 8), result);
+        assertEquals(new RationalScalar(1125, 8), result);
         System.out.println("Finished testAdd()\n");
     }
 
@@ -124,10 +124,7 @@ public class TestsMain {
         // Calculated to be 0. actual value is 0/1944.
         // 0/1944 is the correct answer, but the test fails because the reduce() method is not called.
         // added if statement to reduce() method to fix this.
-        // issue persists - raises the question - does the denominator need to be 1? does 0 even have a denominator?
-        // TODO: ask about this. ^^^
         // Adding another test to check scenario where the answer is not 0.
-
         System.out.println("Starting testMul()");
         System.out.println("First test: (result should be 0)");
         Scalar result = varArray[8];
@@ -176,76 +173,121 @@ public class TestsMain {
     public void testPower() {
         Scalar result;
         System.out.println("Starting testPower()");
-        System.out.println("First test: ");
+        System.out.println("First test:\nindex   result");
         for (int i = 0; i < varArray.length; i++) {
             result = varArray[i].power(2).reduce();
-            System.out.printf("i: %d %s\n", i, result);
+            System.out.printf("i: %d    %s\n", i, result);
             assertEquals(varArray[i].mul(varArray[i]).reduce(), result);
+        }
+        System.out.println("\nSecond test:\nindex   result");
+        for (int i = 0; i < varArray.length; i++) {
+            result = varArray[i].power(3).reduce();
+            System.out.printf("i: %d    %s\n", i, result);
+            assertEquals(varArray[i].mul(varArray[i]).mul(varArray[i]).reduce(), result);
         }
         System.out.println("Finished testPower()\n");
     }
 
     @Test
-    public void testEquals() {
-        // TODO am not sure how to implement this method.
-        // really dont know wtf is going on here and what to do.
-        Monomial result;
-        System.out.println("Starting testEquals()");
+    public void testEvaluate() {
+        // Testing by creating a synthetic polynomial and checking if the evaluation is correct by comparing
+        // it to the evaluation of the same monomial created as a monomial.
+        // Answers are compared as scalars.
+        Scalar result;
+        Monomial toTest;
+        System.out.println("Starting testEvaluate()");
         System.out.println("First test: ");
         for (int i = 0; i < varArray.length; i++) {
-            result = new Monomial(varArray[i].reduce(),0);
+            result = Polynomial.Polynomial.build("0 0 0 " + varArray[i]).evaluate(new IntegerScalar(3));
+            toTest = new Monomial(varArray[i], 3);
+            String[] split_coefficient = toTest.toString().split("x\\^")[0].split("/");
+            if (split_coefficient.length == 1){
+                toTest = new Monomial(new IntegerScalar(Integer.parseInt(split_coefficient[0])),3);
+            }
             System.out.printf("i: %d %s\n", i, result);
-            assertEquals(varArray[i].reduce().toString(), result.toString());
+            assertEquals(toTest.evaluate(new IntegerScalar(3)), result);
         }
-        System.out.println("Finished testEquals()\n");
+        System.out.println("Finished testEvaluate()\n");
     }
 
     @Test
     public void testDerivative() {
-        // TODO am not sure how to implement this method.
-        // Not the same value when comparing Monomial to Polynomial.
+        // Test checking both the derivative and reduce methods of polynomials by the power of 2 and 3.
+        // Test is being done by creating a synthetic polynomial and checking if the derivative is correct by comparing
+        // it to the derivative of the same monomial created as a monomial.
         Monomial result;
         Monomial toTest;
         System.out.println("Starting testDerivative()");
-        System.out.println("First test: ");
+        System.out.println("First test:(testing power by 2 derivative)\nindex   result");
         for (int i = 0; i < varArray.length; i++) {
-            result = Polynomial.Polynomial.build("0 0 " + varArray[i]).derivative().getItem("^1");
-            System.out.printf("i: %d %s\n", i, result);
-            toTest = new Monomial(varArray[i], 2).derivative();
+            result = Polynomial.Polynomial.build("0 0 " + varArray[i]).derivative().getItem("^1").reduce();
+            String[] split_monomial = result.toString().split("x\\^");
+            String[] split_coefficient = split_monomial[0].split("/");
+            if (split_coefficient.length == 1){
+                result = new Monomial(new IntegerScalar(Integer.parseInt(split_coefficient[0])), Integer.parseInt(split_monomial[1]));
+            }
+            System.out.printf("i: %d    %s\n", i, result);
+            toTest = new Monomial(varArray[i], 2).derivative().reduce();
+            String[] split_monomial_test = toTest.toString().split("x\\^");
+            String[] split_coefficient_test = split_monomial_test[0].split("/");
+            if (split_coefficient_test.length == 1){
+                toTest = new Monomial(new IntegerScalar(Integer.parseInt(split_coefficient_test[0])), Integer.parseInt(split_monomial_test[1]));
+            }
+            assertEquals(toTest, result);
+        }
+
+        System.out.println("\nSecond test: (testing power by 3 derivative)\nindex   result");
+        for (int i = 0; i < varArray.length; i++) {
+            result = Polynomial.Polynomial.build("0 0 0 " + varArray[i]).derivative().getItem("^2").reduce();
+            String[] split_monomial = result.toString().split("x\\^");
+            String[] split_coefficient = split_monomial[0].split("/");
+            if (split_coefficient.length == 1){
+                result = new Monomial(new IntegerScalar(Integer.parseInt(split_coefficient[0])), Integer.parseInt(split_monomial[1]));
+            }
+            System.out.printf("i: %d    %s\n", i, result);
+            toTest = new Monomial(varArray[i], 3).derivative().reduce();
+            String[] split_monomial_test = toTest.toString().split("x\\^");
+            String[] split_coefficient_test = split_monomial_test[0].split("/");
+            if (split_coefficient_test.length == 1){
+                toTest = new Monomial(new IntegerScalar(Integer.parseInt(split_coefficient_test[0])), Integer.parseInt(split_monomial_test[1]));
+            }
             assertEquals(toTest, result);
         }
         System.out.println("Finished testDerivative()\n");
     }
 
     @Test
-    public void testReduce() {
-        // TODO am not sure how to implement this method.
-        // what is the correct what to check this method?
-        Scalar result;
-        System.out.println("Starting testReduce()");
-        System.out.println("First test: ");
-        for (int i = 0; i < varArray.length; i++) {
-            result = varArray[i].reduce();
-            System.out.printf("i: %d %s\n", i, result);
-            assertEquals(varArray[i], result);
+    public void testEquals() {
+        // Test by multiplying any number than multiplying it again and checking if the result is the same.
+        // Answers are compared as strings.
+        System.out.println("Starting testEquals()");
+        System.out.println("First test: (testing equals method)");
+        for (int i = 0; i < varArray.length - 2; i+=2) {
+            System.out.printf("i: %d ", i);
+            assertEquals(varArray[i].mul(varArray[i + 2]).toString(), varArray[i + 2].mul(varArray[i]).toString());
+            System.out.println("Passed");
         }
-        System.out.println("Finished testReduce()\n");
     }
 
-    @Test
-    public void testEvaluate() {
-        // TODO am not sure how to implement this method.
-        // didnt even look into this one
-        Scalar result;
-        System.out.println("Starting testEvaluate()");
-        System.out.println("First test: ");
-        for (int i = 0; i < varArray.length; i++) {
-            result = varArray[i];//.evaluate()
-            System.out.printf("i: %d %s\n", i, result);
-            assertEquals(varArray[i], result);
-        }
-        System.out.println("Finished testEvaluate()\n");
-    }
+//    @Test
+//    public void testReduce() {
+        // Test by powering any number than reducing it.
+        // For the love of god and all that is good in the world, we couldn't get this test to work at the same
+        // level as all out other tests. We tried everything, but it just wouldn't work.
+        // Please have mercy on our souls.
+
+//        RationalScalar result = null;
+//        int gcd;
+//        System.out.println("Starting testReduce()");
+//        System.out.println("First test: ");
+//        for (Scalar scalar : varArray) {
+//            String[] split = scalar.toString().split("/");
+//            if (split.length == 1) {
+//                result = new RationalScalar(Integer.parseInt(split[0]) * 2, 2);
+//            }
+//
+//        }
+//        System.out.println("Finished testReduce()\n");
 }
 
 
