@@ -5,7 +5,8 @@ import Tests.TestsMain;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+// there was an attempt to split each test into its own file, but it was too much work as we could not fine
+// a way to import the Scalar classes into the test files without getting errors.
 public class TestIntegerScalar {
     // -------------------------- variables --------------------------------
     static Scalar i0 = new IntegerScalar(1);

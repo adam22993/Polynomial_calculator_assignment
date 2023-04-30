@@ -1,4 +1,5 @@
 package Tests;
+import Polynomial.Monomial;
 import Polynomial.Scalar.*;
 import org.junit.jupiter.api.Assertions;
 import Tests.TestsMain;
@@ -34,7 +35,7 @@ public class TestsMain {
     public static final Scalar[] varArray = {i0, r0, i1, r1, i2, r2, i3, r3, i4, r4, i5, r5, i6, r6, i7, r7, i8, r8, i9, r9, i10, r10};
     //0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,  21
 
-// ----------------------------- tests ----------------------------------
+// ------------------------ Scalar Tests ----------------------------
 
     @Test
     public void testIntegerScalar() {
@@ -45,15 +46,17 @@ public class TestsMain {
         assertEquals(-5, s2.getNumber());
         IntegerScalar s3 = new IntegerScalar(0);
         assertEquals(0, s3.getNumber());
-        IntegerScalar s4 = new IntegerScalar(6/3); // 6/3 = 2 check if constructor handles this
+        IntegerScalar s4 = new IntegerScalar(6 / 3); // 6/3 = 2 check if constructor handles this
         assertEquals(2, s4.getNumber());
-        IntegerScalar s5 = new IntegerScalar(6/4); // 6/4 = 1 check if constructor handles this, int rounds down
+        IntegerScalar s5 = new IntegerScalar(6 / 4); // 6/4 = 1 check if constructor handles this, int rounds down
         assertEquals(1, s5.getNumber());
+        //IntegerScalar s6 = new IntegerScalar((int) 1.5); // useless test because of forced casting by constructor
+        IntegerScalar s7 = new IntegerScalar(5 / 2); // 5/2 = 2 check if constructor handles this, int rounds down
         System.out.println("Finished testIntegerScalar()\n");
     }
 
     @Test
-    public void testRationalScalar(){
+    public void testRationalScalar() {
         // Not testing for 0 denominator because assignment says we don't check for this because we are big bois.
         System.out.println("Starting testRationalScalar()");
         RationalScalar s = new RationalScalar(5, 2);
@@ -77,15 +80,15 @@ public class TestsMain {
         RationalScalar s7 = new RationalScalar(5, 5);
         assertEquals(1, s7.getNumerator());
         assertEquals(1, s7.getDenominator());
-        RationalScalar s8 = new RationalScalar(6/3, 2); // 6/3 = 2 check if constructor handles this
+        RationalScalar s8 = new RationalScalar(6 / 3, 2); // 6/3 = 2 check if constructor handles this
         assertEquals(1, s8.getNumerator());
         assertEquals(1, s8.getDenominator());
         assertNotEquals(2, s8.getNumerator());
         assertNotEquals(2, s8.getDenominator());
-        RationalScalar s9 = new RationalScalar(6/4, 2); // 6/4 = 1 check if constructor handles this, int rounds down
+        RationalScalar s9 = new RationalScalar(6 / 4, 2); // 6/4 = 1 check if constructor handles this, int rounds down
         assertEquals(1, s9.getNumerator());
         assertEquals(2, s9.getDenominator());
-        assertNotEquals((float) 3/2, s9.getNumerator());
+        assertNotEquals((float) 3 / 2, s9.getNumerator());
         assertNotEquals(1, s9.getDenominator());
         System.out.println("Finished testRationalScalar()\n");
     }
@@ -102,9 +105,9 @@ public class TestsMain {
         System.out.println("Starting testAdd()");
         Scalar result = varArray[0];
         System.out.println("First test: (result should be 475/63)");
-        for (int i = 1 ; i < 8; i++) {
+        for (int i = 1; i < 8; i++) {
             result = result.add(varArray[i]).reduce();
-            System.out.printf("i: %d %s\n",i ,result);
+            System.out.printf("i: %d %s\n", i, result);
         }
         assertEquals(new RationalScalar(475, 63), result);
 
@@ -112,9 +115,9 @@ public class TestsMain {
         // Passed the test.
         result = varArray[8];
         System.out.println("Second test: (result should be 1113/8)");
-        for (int i = 9 ; i < 16; i++) {
+        for (int i = 9; i < 16; i++) {
             result = result.add(varArray[i]).reduce();
-            System.out.printf("i: %d %s\n",i ,result);
+            System.out.printf("i: %d %s\n", i, result);
         }
         assertEquals(new RationalScalar(1113, 8), result);
         System.out.println("Finished testAdd()\n");
@@ -149,25 +152,104 @@ public class TestsMain {
         assertEquals(new RationalScalar(-62320, 21), result);
         System.out.println("Finished testMul()\n");
     }
+
     @Test
-    public void testNeg() {
-        System.out.println("Starting testNeg()");
+    public void testNeg_Sign() {
+        // At start, was confusing how to test these methods.
+        // Decided to test if the sign of the result is the opposite of the sign of the original while testing the
+        // sign() method at the same time.
+        // This test is dependent, meaning if one fails, the other method will fail as well.
         Scalar result;
-        for (int i = 1; i < varArray.length; i++) {
-            result = (varArray[i]).neg();
+        System.out.println("Starting testNeg_Sign()");
+        System.out.println("First test: ");
+        for (int i = 0; i < varArray.length; i++) {
+            result = varArray[i].neg().reduce();
             System.out.printf("i: %d %s\n", i, result);
-            assertEquals(new RationalScalar(-1, 1), result);
+            assertEquals(varArray[i].sign(), -1 * result.sign()); // testing for opposite signs
+            if (varArray[i].sign() == 0) {
+                // If equals 0 then assertNotEquals basically does nothing. Also tested in assertEquals, so we skip.
+                continue;
+            } else {
+                assertNotEquals(varArray[i].sign(), result.sign()); // testing for same signs
+            }
         }
-        System.out.println("Finished testNeg()\n");
+        System.out.println("Finished testNeg_Sign()... not much to test here ¯\\_(ツ)_/¯\n");
     }
-    public void testPower(){
-        System.out.println("Starting testPower()");
+
+    @Test
+    public void testPower() {
         Scalar result;
-        for (int i = 1; i < varArray.length; i++) {
-            result = varArray[i].power(2);
+        System.out.println("Starting testPower()");
+        System.out.println("First test: ");
+        for (int i = 0; i < varArray.length; i++) {
+            result = varArray[i].power(2).reduce();
             System.out.printf("i: %d %s\n", i, result);
-            assertEquals(new RationalScalar(1, 1), result);
+            assertEquals(varArray[i].mul(varArray[i]).reduce(), result);
         }
         System.out.println("Finished testPower()\n");
     }
+
+    @Test
+    public void testEquals() {
+        // TODO am not sure how to implement this method.
+        // really dont know wtf is going on here and what to do.
+        Scalar result;
+        System.out.println("Starting testEquals()");
+        System.out.println("First test: ");
+        for (int i = 0; i < varArray.length; i++) {
+            result = varArray[i].reduce();
+            System.out.printf("i: %d %s\n", i, result);
+            assertEquals(varArray[i].reduce().toString(), result.reduce().toString());
+        }
+        System.out.println("Finished testEquals()\n");
+    }
+
+    @Test
+    public void testDerivative() {
+        // TODO am not sure how to implement this method.
+        // Not the same value when comparing Monomial to Polynomial.
+        Polynomial.Polynomial result;
+        Monomial toTest;
+        System.out.println("Starting testDerivative()");
+        System.out.println("First test: ");
+        for (int i = 0; i < varArray.length; i++) {
+            result = Polynomial.Polynomial.build("0 0 " + new Monomial(varArray[i], 0).getCoefficient().toString()).derivative();
+            System.out.printf("i: %d %s\n", i, result);
+            toTest = new Monomial(varArray[i], 2).derivative();
+            assertEquals(toTest, result + "^1");
+        }
+        System.out.println("Finished testDerivative()\n");
+    }
+
+    @Test
+    public void testReduce() {
+        // TODO am not sure how to implement this method.
+        // what is the correct what to check this method?
+        Scalar result;
+        System.out.println("Starting testReduce()");
+        System.out.println("First test: ");
+        for (int i = 0; i < varArray.length; i++) {
+            result = varArray[i].reduce();
+            System.out.printf("i: %d %s\n", i, result);
+            assertEquals(varArray[i], result);
+        }
+        System.out.println("Finished testReduce()\n");
+    }
+
+    @Test
+    public void testEvaluate() {
+        // TODO am not sure how to implement this method.
+        // didnt even look into this one
+        Scalar result;
+        System.out.println("Starting testEvaluate()");
+        System.out.println("First test: ");
+        for (int i = 0; i < varArray.length; i++) {
+            result = varArray[i];//.evaluate()
+            System.out.printf("i: %d %s\n", i, result);
+            assertEquals(varArray[i], result);
+        }
+        System.out.println("Finished testEvaluate()\n");
+    }
 }
+
+

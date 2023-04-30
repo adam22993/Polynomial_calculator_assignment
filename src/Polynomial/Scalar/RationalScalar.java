@@ -117,8 +117,9 @@ public class RationalScalar implements Scalar {
     @Override
     public boolean equals(Object obj) {
         /*
-         * todo: check object fields to test what happens to r_nom and r_denom. object can have a minus sign
-         *       in the numerator or denominator.
+         * A method for comparing two rational numbers. checking for the same sign and the same reduced value.
+         * @param this - The rational number being compared - the object calling the method.
+         * @param obj - The object to compare to.
          */
         if (obj == this)
             return true;
@@ -137,8 +138,6 @@ public class RationalScalar implements Scalar {
     }
 
     public String toString() {
-        // todo add abs function
-        // todo return a rational number as a string and the sign infront of it
         if (this.numerator % this.denominator == 0) {
             int temp_int = this.numerator / this.denominator;
             return new IntegerScalar(temp_int).toString();
@@ -171,5 +170,15 @@ public class RationalScalar implements Scalar {
             return b;
         }
         return GDC(b, a % b);
+    }
+    public static int abs(int a) {
+        /*
+         * A static method for finding the absolute value of a number.
+         * @param a - The number.
+         */
+        if (a < 0) {
+            return -a;
+        }
+        return a;
     }
 }

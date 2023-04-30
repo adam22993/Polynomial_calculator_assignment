@@ -47,7 +47,7 @@ public class IntegerScalar implements Scalar {
         return new RationalScalar(this.number * r.getNumerator(), r.getDenominator());
     }
 
-    // ------------- Polynomial.Polynomial.Scalar.Scalar methods --------------
+    //-------------- Scalar methods ----------------
     @Override
     public IntegerScalar neg() {
         return new IntegerScalar(-number);

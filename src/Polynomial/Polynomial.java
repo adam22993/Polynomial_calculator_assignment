@@ -4,8 +4,10 @@ import java.util.TreeMap;
 import Polynomial.Scalar.*;
 
 public class Polynomial {
+    // ----------------- fields --------------------
     public final TreeMap<String, Monomial> monomials;
 
+    // -------------- constructors -----------------
     public Polynomial(TreeMap<String, Monomial> monomials) {
         TreeMap<String, Monomial> new_tree = new TreeMap<>();
         for (Monomial m : monomials.values()) {
@@ -15,10 +17,12 @@ public class Polynomial {
         this.monomials = new_tree;
     }
 
+    // ---------------- getters --------------------
     public Monomial getItem(String key) {
         return this.monomials.getOrDefault(key, new Monomial(new IntegerScalar(0), 0));
     }
 
+    // ------------- class methods -----------------
     public Polynomial add(Polynomial p) {
         // todo removed unnecessary code (the loop at the end was not needed)
         TreeMap<String, Monomial> first_tree = new TreeMap<>();
@@ -116,31 +120,6 @@ public class Polynomial {
         return new Polynomial(tree);
     }
 
-    public String toString() {
-        StringBuilder s = new StringBuilder();
-        for (String key : monomials.keySet()) {
-            if (getItem(key).getCoefficient().toString().equals("0") && !getItem(key).toString().equals("0x^0")) {
-                continue;
-            }
-            if (getItem(key).getExponent() == 0) {
-                s.append(getItem(key).getCoefficient().toString()).append(" + ");
-                continue;
-            }
-            if (getItem(key).getExponent() == 1) {
-                s.append(getItem(key).getCoefficient().toString()).append("x + ");
-                continue;
-            }
-            s.append(getItem(key).toString()).append(" + ");
-        }
-        s = new StringBuilder(s.toString().replace(" + -", " - "));
-        if (s.substring(0, 4).equals("0 + ")) {
-            return s.substring(4, s.length() - 3);
-        } else if (s.substring(0, 4).equals("0 - ")) {
-            return "-" + s.substring(4, s.length() - 3);
-        }
-        return s.substring(0, s.length() - 3);
-    }
-
     public Polynomial derivative() {
         TreeMap<String, Monomial> new_tree = new TreeMap<>();
         for (String key : monomials.keySet()) {
@@ -155,6 +134,35 @@ public class Polynomial {
         }
         return res;
     }
+
+    // ------------- object methods -----------------
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        for (String key : monomials.keySet()) {
+            if (key.equals("^0") && getItem(key).getCoefficient().toString().equals("0")) {
+                continue;
+            }
+            if (getItem(key).getExponent() == 0) {
+                s.append(getItem(key).getCoefficient().toString()).append(" + ");
+                continue;
+            }
+            if (getItem(key).getExponent() == 1) {
+                s.append(getItem(key).getCoefficient().toString()).append("x + ");
+                continue;
+            }
+            s.append(getItem(key).toString()).append(" + ");
+        }
+        s = new StringBuilder(s.toString().replace(" + -", " - "));
+        if (s.substring(0, 4).equals("0 + ")) {
+            return s.substring(0, s.length() - 3);
+        } else if (s.substring(0, 4).equals("0 - ")) {
+            return "-" + s.substring(4, s.length() - 3);
+        } else if (s.toString().equals("") || s.toString().equals(" ")) {
+            return "0";
+        }
+        return s.substring(0, s.length() - 3);
+    }
+
 }
 
 
